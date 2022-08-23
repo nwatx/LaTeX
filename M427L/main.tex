@@ -1,0 +1,126 @@
+\documentclass{scrreprt}
+\usepackage{standalone}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{graphbox} % 1120
+\usepackage{chez}
+
+\title{Vector Calculus -- Honors}
+\author{Neo Wang\\ Lecturer: William Bekcner}
+\date{Last Updated: \today}
+
+\begin{document}
+\maketitle
+
+
+\chapter{Chapter 1}
+
+\section{Lecture 1--August 22, 2022}
+
+Riemann integrals deal with functions that are basically continuous.
+You should use the notation $(x, y, z)$ or $x\hat{i} + y\hat{j} + z\hat{k}$
+
+There are several coordinates: Cartesian, cylindrical, and spherical.
+
+Spherical coordinates are given by $(r, \theta, \phi)$
+
+\begin{example}
+	Let $f$ by a continuous functions. Suppose $f(x,y,z)=g(\sqrt{x^2+y^2+z^2})$.
+
+	Let 1. $f(x)=g(\sqrt{x^2+y^2+z^2})$
+	and 2. $f(x, y, z) = h_1(\abs{x})h_2(\abs{y})+h_3(\abs{z})$
+
+	how many such functions satisfy this?
+\end{example}
+
+\begin{definition}
+	Some useful integrals
+	\begin{itemize}
+		\item Continuous: $dxdydz$
+		\item Cylindrical: $rdrd\theta$
+		\item Spherical: $r^2\sin\theta drd\theta d\phi$
+	\end{itemize}
+\end{definition}
+
+\begin{definition}[Vectors]
+	Cross product: $\vec{x}\wedge \vec{y} = -\hat{y} \wedge \hat{x}$ is a vector operation
+
+	Dot product: $\vec{x}\cdot \vec{y} = \sum x_i y_i$ is a scalar operation
+\end{definition}
+
+\section{Lecture 2--August 23, 2022}
+
+\begin{definition}[Coordinate Systems]
+
+$\vec{v}=(x,y,z)\rightarrow \vec{x}=(x_1,x_2,x_3)$
+
+Sometimes will not include $\vec{}$ symbol--we want to think more abstractly in order to build to higher concepts.
+Spherical coordinates: $(r,\theta,\phi)$, and $\theta$ is always the polar angle (from $z$-axis).
+
+Orientation is the order of $(x, y, z)$ which comes into play with \boxed{\text{change of variables.}}
+
+\end{definition}
+
+\begin{remark}[Property of the determinant]
+	The determinant is always $+$ or $-$
+\end{remark}
+
+There are several volume form differentials:
+\[
+	dxdydz = r^2dr\sin \theta d\theta d\phi
+\]
+and note that $\sin \theta$ is always positive
+
+\begin{remark}[Normal model]
+	Normal distribution pdf: \[p(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}x^2}\]
+	With $\mu=0$ and $\sigma=0$
+	The error function is the simplest example of a function that is ``not integrable in elementary terms''
+
+	\begin{align*}
+		2 \int_0^\infty e^{-x^2}dx &= \sqrt{\pi}
+	\end{align*}
+
+	There are connections with physics i.e. the uncertainty principle and the quantum mechanics harmonic oscillator.
+
+	\begin{align*}
+		A &= \int_{-\infty}^{\infty} e^{-x^2}dx \\
+		A^2 &= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} e^{-x^2 - y^2} dydx \\
+			&= \int_{0}^{2\pi}\int_{0}^{\infty} e^{-r^2}rdrd\theta \\
+			&= \frac{1}{2}\int_{0}^{2\pi} \int_{\infty}^{0} e^{-u}dud\theta \\
+			&= \frac{1}{2}\int_{0}^{2\pi} 1 d\theta \\
+			&= \pi \\
+			\Aboxed{A &= \sqrt{\pi}}
+	\end{align*}
+\end{remark}
+
+Differentials tell you how to compute an integral.
+
+\begin{enumerate}
+	\item The integral is linear (also the derivative)
+	\[
+		\int(af+bg)dm=a\int fdm + b\int gdm
+	\]
+	\item For a non-negative function $f(x)\geq 0$ any way that you can calculate a
+	finite value for the integral gives you the ``correct answer.''
+	\item Dilation: \[
+		\int_0^\infty f(ax)dx=\frac{1}{a}\int_0^\infty f(x)dx
+	\]
+\end{enumerate}
+
+\begin{remark}[For proving estimates for the dot or scalar product]
+
+Estimate: $\abs{x\cdot y}=\abs{\sum x_i y_i}\leq||\vec{x}||||\vec{y}||, x =(x_1,x_2,x_3), y=(y_1,y_2,y_3)$ 
+
+3 simple arguments:
+\begin{enumerate}
+	\item Euclidian geometry
+	\item Arithmetic
+	\item Adding a variable $\leftarrow$ the best way and expands view to another parameter
+\end{enumerate}
+\end{remark}
+Properties of vectors:
+vector products (may be a scalar $\vec{x}\cdot \vec{y}$ or a vector $\vec{x}\wedge \vec{y}$) and representation of data in terms of partial derivatives.
+
+
+
+\end{document}
