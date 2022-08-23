@@ -6,3 +6,4 @@
 *.synctex.gz
 *.lua
 *.in
+*.fdb_latexmk
