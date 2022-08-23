@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1661290661 "/home/neo/Documents/GitHub/LaTeX/CS311H/main.tex" "main.pdf" "main" 1661290663
-  "/home/neo/Documents/GitHub/LaTeX/CS311H/main.tex" 1661290661 1478 4b1eba8dc8364431b7acdc59c13cdd05 ""
+["pdflatex"] 1661291400 "/home/neo/Documents/GitHub/LaTeX/CS311H/main.tex" "main.pdf" "main" 1661291401
+  "/home/neo/Documents/GitHub/LaTeX/CS311H/main.tex" 1661291400 2190 9af753c833bc643c1fab7de726abf8e1 ""
   "/home/neo/texmf/tex/latex/local/chez-sty/chez.sty" 1657922911 11472 a92f5a4d315aeb1289241c893e27094a ""
   "/home/neo/texmf/tex/latex/local/chez-sty/chezbase.sty" 1657922550 5797 31f086e23c05e73de70e522816460492 ""
   "/home/neo/texmf/tex/latex/local/chez-sty/chezglyphtounicode.tex" 1657922550 420 b677773941c4738f6ef0eb39197b74e7 ""
@@ -21,6 +21,7 @@
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1246382020 940 228d6584342e91276bf566bcf9716b83 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr10.tfm" 1136768653 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/esint/esint10.tfm" 1569948395 364 55557743e6c24ee44e49bc5e8dbbe3cd ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/libertine/LinBiolinumT-tlf-t1--base.tfm" 1490131464 1744 9486ddc64e90094bbb83f53a83b0e415 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/libertine/LinBiolinumT-tlf-t1.tfm" 1490131464 19548 768852037f39958c435d71846b8877ea ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/libertine/LinBiolinumTB-tlf-t1--base.tfm" 1490131464 1768 23aace73e6def3193d6e0453af90487b ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/libertine/LinBiolinumTB-tlf-t1.tfm" 1490131464 19416 aedd2db224ad278ddf2c411f52d86014 ""
@@ -55,6 +56,7 @@
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/newtx/txmiaSTbb.tfm" 1569879884 920 99acdf374993fd46fd345f9cac168080 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/newtx/txmiaX.tfm" 1634244313 1716 a6b113dfe808a82f532d14b1f370053f ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/newtx/txsys.tfm" 1569879884 1580 8da1d0227b68d95a2f0ea5709b29fc83 ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb" 1354061736 548786 1e51d517556d29f2841d57da58668a69 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb" 1354061736 687959 b99c9f5a9b28f3dba077d1c078bceb3f ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb" 1354061736 614791 ea39341e4db76f25cb20c361802d3cd5 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb" 1354061736 538965 19c5c8b7f952ac97afb8565e9c21a82d ""
@@ -62,6 +64,7 @@
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb" 1575323900 36894 0893e50696ed2a200373455c6aff080e ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb" 1635022465 56686 b959be5e2e4a0232f5aa4c1c4be4574a ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/txsys.pfb" 1569879884 40320 53cb337366eff502cad8f44871c88e39 ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/vf/public/libertine/LinBiolinumT-tlf-t1.vf" 1490131464 1728 e76e04a950024a95b620698b679c9810 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/vf/public/libertine/LinBiolinumTB-tlf-t1.vf" 1354061736 1728 4ae633ddccb76ba8d0a0906a5e2e8fdf ""
   "/usr/local/texlive/2022/texmf-dist/fonts/vf/public/libertine/LinLibertineT-tlf-ot1.vf" 1490131464 968 b4daf26f130460f16d670da7f3f6963f ""
   "/usr/local/texlive/2022/texmf-dist/fonts/vf/public/libertine/LinLibertineT-tlf-sc-t1.vf" 1354061736 1732 19a98a3416ac208cfc1e8cd877852bec ""
@@ -295,9 +298,9 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1657917445 4595694 b76fcd149e7cf352cfe61a349f6f47d6 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1657917472 2864969 e147d6229b54cf40957c123e054788a5 ""
   "/usr/local/texlive/2022/texmf.cnf" 1657917440 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "main.aux" 1661290662 1037 78a48c93554f7702817bc7612c8cf77e "pdflatex"
+  "main.aux" 1661291401 1037 08c76ffe9758572a50e3b8859794e70e "pdflatex"
   "main.out" 0 -1 0 "pdflatex"
-  "main.tex" 1661290661 1478 4b1eba8dc8364431b7acdc59c13cdd05 ""
+  "main.tex" 1661291400 2190 9af753c833bc643c1fab7de726abf8e1 ""
   (generated)
   "main.aux"
   "main.log"
