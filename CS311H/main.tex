@@ -1,0 +1,39 @@
+\documentclass{scrreprt}
+\usepackage{standalone}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{graphbox} % 1120
+\usepackage{chez}
+
+\title{Discrete Mathematics--Honors}
+\author{Neo Wang\\ Lecturer: Isil Dilig}
+\date{Last Updated: \today}
+
+\begin{document}
+\maketitle
+
+\chapter{Chapter 1}
+
+There are three basic logical connectives: \textbf{and}, \textbf{or}, \textbf{not}
+which are denoted by $\land$, $\lor$, and $\neg$ respectively.
+The negation of a proposition $p$, written $\neg p$, is true if $p$ is false and false if $p$ is true.
+
+\begin{example}
+	``Less than 80 students are enrolled in CS311H'' is a proposition. The negation of this is at least $80$ students are in CS311H
+\end{example}
+
+Conjunction of two propositions $p$ and $q$ is written $p\land q$
+
+\begin{example}
+	The conjunction of $p=$ ``It is Tuesday'' and $q=$ ``it is morning'' is $p\land q=$ ``It is Tuesday and it is morning''
+\end{example}
+
+\begin{itemize}
+\item Disjunction is written $p\lor q$ and the disjunction between $p\lor q$ for $p=$ ``It is Tuesday'' and $q=$ ``it is morning'' is $p\lor q=$ ``It is Tuesday or it is morning''
+\item If your formula has $n$ variables then your truth table has $n+1$ columns because you have $n$ variables and one column for the truth value of the formula.
+\item The number of rows is given by the formula $2^n$
+\item Other connectives: exclusive or $\oplus$, implication $\rightarrow$, biconditional $\leftrightarrow$
+\end{itemize}
+
+
+\end{document}
