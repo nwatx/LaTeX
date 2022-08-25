@@ -9,10 +9,16 @@
 \author{Neo Wang\\ Lecturer: Isil Dilig}
 \date{Last Updated: \today}
 
+\newcommand{\true}{\text{true}}
+\newcommand{\false}{\text{false}}
+
 \begin{document}
 \maketitle
 
 \chapter{Chapter 1}
+
+\section{Predicate Logic}
+\subsection{Lecture 1--August 23, 2022}
 
 There are three basic logical connectives: \textbf{and}, \textbf{or}, \textbf{not}
 which are denoted by $\land$, $\lor$, and $\neg$ respectively.
@@ -35,5 +41,137 @@ Conjunction of two propositions $p$ and $q$ is written $p\land q$
 \item Other connectives: exclusive or $\oplus$, implication $\rightarrow$, biconditional $\leftrightarrow$
 \end{itemize}
 
+\subsection{Lecture 2--August 25, 2022}
+
+Let $p=$ ``I major in CS'', $q=$ ``I will find a good job'', $r=$ ``I can program''
+
+\begin{itemize}
+
+\item ``I will not find a good job unless I major in CS or I can program'': $(\neg p \land \neg r)\rightarrow \neg q$
+
+\item ``I will not find a good job unless I major in CS and I can program'': $(\neg p \lor \neg r)\rightarrow \neg q$
+
+\item The \textbf{inverse} of an implication $p\rightarrow q$ is $\neg p\rightarrow \neg q$.
+Therefore, ``If I'm a CS major then I can program'' has an inverse of 
+``If I am not a CS Major then I'm not able to program.''
+
+\item The \textbf{converse} of an implication $p\rightarrow q$ is $q\rightarrow p$.
+
+\end{itemize}
+
+\begin{definition}[Contrapositive]
+	The contrapositive of an implication of $p\rightarrow q$ is $\neg q\rightarrow \neg p$
+
+	The contrapositive of ``if CS major then I can program'' is ``if I can't program, then I'm not a CS major''
+
+	% make a truth table for p, q, p->q, !p->!p
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		$p$ & $q$ & $p\rightarrow q$ & $\neg q\rightarrow \neg p$ \\
+		\hline
+		T & T & T & T \\
+		T & F & F & F \\
+		F & T & T & T \\
+		F & F & T & T \\
+		\hline
+	\end{tabular}
+
+	A converse and it's inverse are always the same.
+
+\end{definition}
+
+\begin{definition}[Biconditionals]
+	$p\leftrightarrow q = p\rightarrow q \land q\rightarrow p = \neg (p\oplus q)$
+\end{definition}
+
+\begin{example}[Operator precedence]
+	Given a formula $p\land q \lor r$ do we parse this as $(p\land q)\lor r$ or $p\land (q\lor r)$?
+
+	\begin{enumerate}
+		\item Negation $\neg$ has the highest precedence
+		\item Conjunction ($\land$) has the next highest precedence
+		\item Disjunction ($\lor$) has the next highest precedence
+		\item Implication ($\rightarrow$) has the next highest precedence
+		\item Biconditional ($\leftrightarrow$) has the lowest precedence
+		\item Make sure to explicitly use parentheses for $\oplus$
+	\end{enumerate}
+\end{example}
+
+\section{Validity and Satisfiability}
+
+Validity and satisfiability
+\begin{itemize}
+	\item The truth value depends on truth assigments to variables
+	\item Example: $\neg p$ evaluates to true under the assignment $p=F$ and to false under $p=T$
+	\item Some formulas evaluate to true for all assignments--these are called \textbf{tautologies} or \textbf{valid formulas}
+	\item Some formulas evaluate to false for all assignments--these are called \textbf{contradictions} or \textbf{unsatisfiable formulas}
+\end{itemize}
+
+\begin{definition}[Interpretation]
+	An interpretation $I$ for a formula $F$ is a mapping from each propositional
+	value to exactly one truth value.
+
+	\[
+		I: \set{p\mapsto \true, q\mapsto \false, \ldots,}
+	\]
+
+	Each interpretation corresponds to one row in the truth table so there are $2^n$ interpretations for a formula with $n$ variables.
+
+	If the formula is true under interpretation $I$ then we write $I\models F$ and if the formula is false then we write $I\not\models F$.
+
+	Theorem: $I\models F$ if and only if $I\not\models \neg F$.
+\end{definition}
+
+\begin{example}
+	Consider the formula $F: p\land q\rightarrow \neg p \land \neg q$
+
+	Let $I_1$ be the interpretation such that $[p\mapsto \true, q\mapsto \true]$
+
+	What does $F$ evaluate to under $I_1$? Answer: $\true$
+\end{example}
+
+\begin{example}
+	Let $F_1$ and $F_2$ be two propositional formulas. Suppose $F_1$ is true under $I$. 
+	Then, $F_2\and \neg F_1$ evaluates to $\false$ under $I$ (the ``and'' shortcuts and forces the whole equation to be false).
+\end{example}
+
+Satisfiability, Validy
+\begin{itemize}
+	\item $F$ is \textbf{satisfiable} iff there exists interpretation $I | I\models F$
+	\item $F$ is \textbf{valid} iff for all interpretations $I, I\models F$
+	\item $F$ is \textbf{unsatisfiable} iff for all interpretations $I, I\not\models F$
+	\item $F$ is \textbf{contingent} if it is satisfiable, but not valid.
+\end{itemize}
+
+\begin{example}[Are the following statements true of false?]
+	\begin{itemize}
+		\item If a formula is valid, then it is also satisfiable? True. All interpretations are satisfiable.
+		\item If a formula is satisfiable, then its negation is unsatisfiable. False.
+		\item If $F_1$ and $F_2$ are satisfiable, then $F_1\land F_2$ is also satisfiable. False.
+		\item If $F_1$ and $F_2$ are satisfiable, then $F_1\lor F_2$ is also satisfiable. True.
+	\end{itemize}
+\end{example}
+
+\begin{theorem}[Duality Between Validity and Unsatisfiability]
+	$F$ is valid iff $\neg F$ is unsatisfiable.
+
+	\begin{proof}
+		Definition: $F$ is valid iff for all interpretations $I, I\models F$
+
+		Theorem: $I\models F \iff I\not\models \neg F$
+
+		TODO: it's trivial so maybe later.
+	\end{proof}
+\end{theorem}
+
+Question: How can we prove that a propositional formula is a tautology is true?
+
+Answer: We can use the \textbf{truth table method} and prove that the formula is true for all possible truth assignments.
+
+\begin{example}[Tautology]
+	$(p\rightarrow q)\leftrightarrow (\neg q \rightarrow \neg p)$ is a tautology.
+
+	$(p\land q)\lor \neg p$ is not a tautology.
+\end{example}
 
 \end{document}
