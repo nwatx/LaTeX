@@ -7,3 +7,5 @@
 *.lua
 *.in
 *.fdb_latexmk
+
+/CS311H/homework/
