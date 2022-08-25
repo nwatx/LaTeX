@@ -143,5 +143,123 @@ Properties:
 	\]
 \end{itemize}
 
+\section{Lecture 3--August 25, 2022}
+
+How to think about data: strings, words, ``columns'', rectangular arrays.
+
+We can think of strings as slots: $(x_1, x_2, x_3, \ldots, x_n)$
+
+Structures of organization may give insightful information on how to extra information
+
+\begin{definition}[Triangle Inequality]
+	The length of any side is less than the sum of the lengths of the other two sides.
+\end{definition}
+
+More abstract setting--use ``norm.'' Vectors: objects that we can add or subtract scalar mltiples--scalars.
+
+Length--norm: $\abs{\vec{v}}=\sqrt{\langle \vec{v}, \vec{v}\rangle}$
+
+\begin{definition}[Homogenous]
+	A real-valued function $h(x)$ is homogenous of degree $\lambda$
+	if $h(\lambda x)=\delta^\lambda h(x)$ where $\lambda \in \mathbb{R}$
+
+	The differential $r^2drsin\theta d\theta d\phi$ is homogenous of degree $3$.
+
+	This defines a vector space.
+\end{definition}
+
+\begin{remark}[Most important property from linear algebra]
+	Suppose you have a finite collection of vectors which you want to be \fbox{linearly independent.}
+	Then you can find a basis for the space spanned by the vectors. Then:
+	\[
+		c_1u_1 + c_2u_2 + \ldots + c_nu_n = 0 \Leftrightarrow c_1=c_2=\ldots=c_n=0
+	\]
+
+	in $\mathbb{R}^3$, the unit vectors $\vec{i}, \vec{j}, \vec{k}$ are linearly independent.
+	Any vector expression written in terms of these vectors is unique. The only way
+	for us to get the zero vector is if all the coefficients are zero.
+
+\end{remark}
+
+A vector space with a norm is called a ``normed vector space.''
+
+\begin{example}[Normed vector space]
+	Consider the set of continuous functions defined on the unit square--with scalars
+	as real numbers, they are vector space. Restrict to all such functions that are
+	square integrable on the unit square:
+
+	\[
+		\int_0^1\int_0^1|f(x,y)|^2dx dy < \infty
+	\]
+
+	if this is true then we can create a norm on this space by setting 
+
+	\[
+		||f|| = \sqrt{\int_0^1\int_0^1|f(x,y)|^2dxdy}
+	\]
+
+	\[
+		||f||_2 = \int_0^1\int_0^1|f(x,y)|dxdy
+	\]
+
+	Then we have informally said that $f$ is Lebesgue integrable.
+\end{example}
+
+\begin{remark}
+The function is defined for a domain and the function takes various values. What do you want to
+partition? You want to partition the range and you can estimate the function in order to get the
+Lebesgue integral. We can look at this fundamental difference via the diagram (Lebesgue on bottom):
+
+% lesbesgue diagram
+\includegraphics[width=300px]{figures/2022-08-25-11-47-29.png}
+\end{remark}
+
+\begin{fact}[Dot Product]
+	$\vec{x}\cdot \vec{x} = \abs{\vec{x}}^2$
+\end{fact}
+
+\begin{theorem}[Cauchy Schwartz Inequality]
+	With respect to length--to show that for two vectors $\vec{x} = (x_1, x_2, x_3)$ and $\vec{y} = (y_1, y_2, y_3)$ then 
+	\[
+		\abs{\vec{x}\cdot \vec{y}} \leq |\vec{x}| |\vec{y}|.
+	\]
+
+	same argument will work for abstract vector spaces with norm and scalar product.
+
+	Multiple proofs: Euclidean geometry, arithmetic, to see the role of length. But proof should capture the spirit of calculating length.
+
+	\begin{proof}
+		We will add a parameter $\lambda$ 
+
+		\[
+			|\vec{x} - \lambda \vec{y}|
+		\]
+
+		Remember that lengths and norms have corners. These are not smooth.
+		For example $f(x=|x|)$ is not smooth at $x=0$. You would like to smooth it
+		out to something like $g(x)=x^2$. Therefore, square the expression to remove the ``corners.''
+
+		Assume that $\vec{x}$ and $\vec{y}$ are non-zero. Otherwise nothing to show.
+
+		\begin{align*}
+			0 \leq |\vec{x}-\lambda \vec{y}|^2 &= \vec{x}\cdot \vec{x} + \lambda^2\vec{y}\cdot \vec{y} - 2\lambda\vec{x}\cdot \vec{y} \\ &= \abs{\vec{x}}^2 + \lambda^2\abs{\vec{y}}^2 - 2\lambda\vec{x}\cdot \vec{y} \\
+			&= |y|^2 + \brackets{\lambda^2-2B\lambda+C} \\
+			&= \lambda^2 - 2B\lambda + C
+		\end{align*}
+
+		If we complete the square we get $\lambda^2-2B\lambda + B^2 + C - B^2\geq 0$
+
+		\[
+			(\lambda - B)^2 + C - B^2 \geq 0 \implies \boxed{C-B^2\geq 0}
+		\]
+
+		\[
+			C = \frac{|x|^2}{|y|^2}, B = \frac{x\cdot y}{|y|^2}
+		\]
+
+		Expanding this, we get the Cauchy Schwartz inequality.
+	\end{proof}
+\end{theorem}
+
 
 \end{document}

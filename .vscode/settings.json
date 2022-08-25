@@ -1,13 +1,13 @@
 {
-	"latex-workshop.latex.tools": [{
-		"name": "latexmk",
-		"command": "latexmk",
-		"args": [
-			"-lualatex",
-			"-synctex=1",
-			"-interaction=nonstopmode",
-			"-file-line-error",
-			"%DOC%"
-		]
-	}],
+	// "latex-workshop.latex.tools": [{
+	// 	"name": "latexmk",
+	// 	"command": "latexmk",
+	// 	"args": [
+	// 		"-lualatex",
+	// 		"-synctex=1",
+	// 		"-interaction=nonstopmode",
+	// 		"-file-line-error",
+	// 		"%DOC%"
+	// 	]
+	// }],
 }
