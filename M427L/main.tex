@@ -13,9 +13,11 @@
 \maketitle
 
 
-\chapter{Chapter 1}
+\chapter{Vectors}
 
-\section{Lecture 1--August 22, 2022}
+\section{Vector Basics}
+
+\subsection{Lecture 1--August 22, 2022}
 
 Riemann integrals deal with functions that are basically continuous.
 You should use the notation $(x, y, z)$ or $x\hat{i} + y\hat{j} + z\hat{k}$
@@ -48,16 +50,16 @@ Spherical coordinates are given by $(r, \theta, \phi)$
 	Dot product: $\vec{x}\cdot \vec{y} = \sum x_i y_i$ is a scalar operation
 \end{definition}
 
-\section{Lecture 2--August 23, 2022}
+\subsection{Lecture 2--August 23, 2022}
 
 \begin{definition}[Coordinate Systems]
 
-$\vec{v}=(x,y,z)\rightarrow \vec{x}=(x_1,x_2,x_3)$
+	$\vec{v}=(x,y,z)\rightarrow \vec{x}=(x_1,x_2,x_3)$
 
-Sometimes will not include $\vec{}$ symbol--we want to think more abstractly in order to build to higher concepts.
-Spherical coordinates: $(r,\theta,\phi)$, and $\theta$ is always the polar angle (from $z$-axis).
+	Sometimes will not include $\vec{}$ symbol--we want to think more abstractly in order to build to higher concepts.
+	Spherical coordinates: $(r,\theta,\phi)$, and $\theta$ is always the polar angle (from $z$-axis).
 
-Orientation is the order of $(x, y, z)$ which comes into play with \boxed{\text{change of variables.}}
+	Orientation is the order of $(x, y, z)$ which comes into play with \boxed{\text{change of variables.}}
 
 \end{definition}
 
@@ -77,19 +79,19 @@ and note that $\sin \theta$ is always positive
 	The error function is the simplest example of a function that is ``not integrable in elementary terms''
 
 	\begin{align*}
-		2 \int_0^\infty e^{-x^2}dx &= \sqrt{\pi}
+		2 \int_0^\infty e^{-x^2}dx & = \sqrt{\pi}
 	\end{align*}
 
 	There are connections with physics i.e. the uncertainty principle and the quantum mechanics harmonic oscillator.
 
 	\begin{align*}
-		A &= \int_{-\infty}^{\infty} e^{-x^2}dx \\
-		A^2 &= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} e^{-x^2 - y^2} dydx \\
-			&= \int_{0}^{2\pi}\int_{0}^{\infty} e^{-r^2}rdrd\theta \\
-			&= \frac{1}{2}\int_{0}^{2\pi} \int_{\infty}^{0} e^{-u}dud\theta \\
-			&= \frac{1}{2}\int_{0}^{2\pi} 1 d\theta \\
-			&= \pi \\
-			\Aboxed{A &= \sqrt{\pi}}
+		A         & = \int_{-\infty}^{\infty} e^{-x^2}dx                                  \\
+		A^2       & = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} e^{-x^2 - y^2} dydx \\
+		          & = \int_{0}^{2\pi}\int_{0}^{\infty} e^{-r^2}rdrd\theta                 \\
+		          & = \frac{1}{2}\int_{0}^{2\pi} \int_{\infty}^{0} e^{-u}dud\theta        \\
+		          & = \frac{1}{2}\int_{0}^{2\pi} 1 d\theta                                \\
+		          & = \pi                                                                 \\
+		\Aboxed{A & = \sqrt{\pi}}
 	\end{align*}
 \end{remark}
 
@@ -97,31 +99,31 @@ Differentials tell you how to compute an integral.
 
 \begin{enumerate}
 	\item The integral is linear (also the derivative)
-	\[
-		\int(af+bg)dm=a\int fdm + b\int gdm
-	\]
+	      \[
+		      \int(af+bg)dm=a\int fdm + b\int gdm
+	      \]
 	\item For a non-negative function $f(x)\geq 0$ any way that you can calculate a
-	finite value for the integral gives you the ``correct answer.''
+	      finite value for the integral gives you the ``correct answer.''
 	\item Dilation: \[
-		\int_0^\infty f(ax)dx=\frac{1}{a}\int_0^\infty f(x)dx
-	\]
+		      \int_0^\infty f(ax)dx=\frac{1}{a}\int_0^\infty f(x)dx
+	      \]
 \end{enumerate}
 
 \begin{remark}[For proving estimates for the dot or scalar product]
 
-Estimate: $\abs{x\cdot y}=\abs{\sum x_i y_i}\leq||\vec{x}||||\vec{y}||, x =(x_1,x_2,x_3), y=(y_1,y_2,y_3)$ 
+	Estimate: $\abs{x\cdot y}=\abs{\sum x_i y_i}\leq||\vec{x}||||\vec{y}||, x =(x_1,x_2,x_3), y=(y_1,y_2,y_3)$
 
-3 simple arguments:
-\begin{enumerate}
-	\item Euclidian geometry
-	\item Arithmetic
-	\item Adding a variable $\leftarrow$ the best way and expands view to another parameter
-\end{enumerate}
+	3 simple arguments:
+	\begin{enumerate}
+		\item Euclidian geometry
+		\item Arithmetic
+		\item Adding a variable $\leftarrow$ the best way and expands view to another parameter
+	\end{enumerate}
 \end{remark}
 Properties of vectors:
 vector products (may be a scalar $\vec{x}\cdot \vec{y}$ or a vector $\vec{x}\wedge \vec{y}$) and representation of data in terms of partial derivatives.
 
-\section{Discussion--August 24, 2022}
+\subsection{Discussion--August 24, 2022}
 
 Vectors are a directed line segment. A vector in $n$-dimensional space is an
 ordered tuple of $n$ real numbers. A vector is denoted $\vec{v}=(a_1,\ldots, a_n), a_i \in \mathbb{R}$
@@ -139,11 +141,11 @@ Properties:
 	\item $\forall \vec{u}\in \mathbb{R}^n \langle \vec{u}, \vec{u}\rangle \geq 0$
 	\item $\langle u, v \rangle = \langle v, u \rangle$
 	\item Dot product is linear: \[
-		c(u\cdot v) = (cu)\cdot v = u\cdot (cv)
-	\]
+		      c(u\cdot v) = (cu)\cdot v = u\cdot (cv)
+	      \]
 \end{itemize}
 
-\section{Lecture 3--August 25, 2022}
+\subsection{Lecture 3--August 25, 2022}
 
 How to think about data: strings, words, ``columns'', rectangular arrays.
 
@@ -192,7 +194,7 @@ A vector space with a norm is called a ``normed vector space.''
 		\int_0^1\int_0^1|f(x,y)|^2dx dy < \infty
 	\]
 
-	if this is true then we can create a norm on this space by setting 
+	if this is true then we can create a norm on this space by setting
 
 	\[
 		||f|| = \sqrt{\int_0^1\int_0^1|f(x,y)|^2dxdy}
@@ -206,20 +208,22 @@ A vector space with a norm is called a ``normed vector space.''
 \end{example}
 
 \begin{remark}
-The function is defined for a domain and the function takes various values. What do you want to
-partition? You want to partition the range and you can estimate the function in order to get the
-Lebesgue integral. We can look at this fundamental difference via the diagram (Lebesgue on bottom):
+	The function is defined for a domain and the function takes various values. What do you want to
+	partition? You want to partition the range and you can estimate the function in order to get the
+	Lebesgue integral. We can look at this fundamental difference via the diagram (Lebesgue on bottom):
 
-% lesbesgue diagram
-\includegraphics[width=300px]{figures/2022-08-25-11-47-29.png}
+	% lesbesgue diagram
+	\includegraphics[width=300px]{figures/2022-08-25-11-47-29.png}
 \end{remark}
 
 \begin{fact}[Dot Product]
 	$\vec{x}\cdot \vec{x} = \abs{\vec{x}}^2$
 \end{fact}
 
+\section{Cauchy Schwarz Inequality}
+
 \begin{theorem}[Cauchy Schwartz Inequality]
-	With respect to length--to show that for two vectors $\vec{x} = (x_1, x_2, x_3)$ and $\vec{y} = (y_1, y_2, y_3)$ then 
+	With respect to length--to show that for two vectors $\vec{x} = (x_1, x_2, x_3)$ and $\vec{y} = (y_1, y_2, y_3)$ then
 	\[
 		\abs{\vec{x}\cdot \vec{y}} \leq |\vec{x}| |\vec{y}|.
 	\]
@@ -229,7 +233,7 @@ Lebesgue integral. We can look at this fundamental difference via the diagram (L
 	Multiple proofs: Euclidean geometry, arithmetic, to see the role of length. But proof should capture the spirit of calculating length.
 
 	\begin{proof}
-		We will add a parameter $\lambda$ 
+		We will add a parameter $\lambda$
 
 		\[
 			|\vec{x} - \lambda \vec{y}|
@@ -242,9 +246,9 @@ Lebesgue integral. We can look at this fundamental difference via the diagram (L
 		Assume that $\vec{x}$ and $\vec{y}$ are non-zero. Otherwise nothing to show.
 
 		\begin{align*}
-			0 \leq |\vec{x}-\lambda \vec{y}|^2 &= \vec{x}\cdot \vec{x} + \lambda^2\vec{y}\cdot \vec{y} - 2\lambda\vec{x}\cdot \vec{y} \\ &= \abs{\vec{x}}^2 + \lambda^2\abs{\vec{y}}^2 - 2\lambda\vec{x}\cdot \vec{y} \\
-			&= |y|^2 + \brackets{\lambda^2-2B\lambda+C} \\
-			&= \lambda^2 - 2B\lambda + C
+			0 \leq |\vec{x}-\lambda \vec{y}|^2 & = \vec{x}\cdot \vec{x} + \lambda^2\vec{y}\cdot \vec{y} - 2\lambda\vec{x}\cdot \vec{y} \\ &= \abs{\vec{x}}^2 + \lambda^2\abs{\vec{y}}^2 - 2\lambda\vec{x}\cdot \vec{y} \\
+			                                   & = |y|^2 + \brackets{\lambda^2-2B\lambda+C}                                            \\
+			                                   & = \lambda^2 - 2B\lambda + C
 		\end{align*}
 
 		If we complete the square we get $\lambda^2-2B\lambda + B^2 + C - B^2\geq 0$
@@ -266,11 +270,60 @@ We want to extend length of vectors to norms, but also the dot product to scalar
 \begin{itemize}
 	\item $\vec{x}\cdot \vec{y}\rightarrow \angles{x, y}$ (scalar product)
 	\item $\angles{x,y}=\angles{y,x}$ symmetry
-	\item $\angles{x,\alpha y + \beta z} = \alpha\angles{x, y} + \beta \angles{x, z}$ 
+	\item $\angles{x,\alpha y + \beta z} = \alpha\angles{x, y} + \beta \angles{x, z}$
 	\item $\angles{x,x} \geq 0$ (positive definite)
 	\item $\angles{x,x} = \norm{x}^2$
 \end{itemize}
 
+\subsection{Discussion--August 29, 2022}
 
+\begin{definition}[Cross Product]
+	\[
+		\vec{a} = (x_1, y_1, z_1), \vec{b} = (x_2, y_2, z_2)
+	\]
+
+	\[
+		\vec{a}\times \vec{b} = \det{\begin{bmatrix} i & j & k \\ x_1 & y_1 & z_1
+                \\ x_2 & y_2 & z_2\end{bmatrix}}
+		= \vec{i}\begin{bmatrix}
+			y_1 & z_1 \\
+			y_2 & z_2
+		\end{bmatrix} - \vec{j}\begin{bmatrix}
+			x_1 & z_1 \\
+			x_2 & z_2
+		\end{bmatrix} + \vec{k}\begin{bmatrix}
+			x_1 & y_1 \\
+			x_2 & y_2
+		\end{bmatrix}
+	\]
+
+	$\forall \vec{a}, \vec{b}, \vec{c}\in \mathbb{R}^3$
+
+	\begin{enumerate}
+		\item $\vec{a}\times \vec{b} = -\vec{b}\times \vec{a}$
+		\item Cross product is linear:
+		      \begin{itemize}\item $\vec{a}\times (\vec{b} + \vec{c}) = \vec{a}\times \vec{b} + \vec{a}\times \vec{c}$
+			      \item $\vec{a}\times \alpha \vec{b} = \alpha \vec{a}\times \vec{b}$
+			      \item $(\vec{a}+\vec{b})\times \vec{c} = \vec{a}\times \vec{c} + \vec{b}\times \vec{c}$
+		      \end{itemize}
+		\item $\vec{a}\times \vec{a} = 0$
+		\item $i\times j = k, j\times k = i, k\times i = j$ in order $i\rightarrow j \rightarrow k\rightarrow i, \ldots$
+	\end{enumerate}
+\end{definition}
+
+\begin{example}
+	Let $P = (-2, 1, 2), Q = (0, 0, 5), R = (5, 7, -1)$
+
+	First, $\vec{u} = Q - P = (2, -1, 3)$ and $\vec{w} = R - P = (7, 6, -3)$
+
+	\begin{enumerate}
+		\item What is the area of PQR? $\frac{1}{2} \norm{u\times w}$
+		\item What is the equation of a plane defined by P, Q, R?
+
+		      $u\times w = \langle -15, 27, 19 \rangle$ is the normal vector to the plane
+
+		      $\therefore (v - p) \cdot (u\times w) = -15(x + 2) + 27(y - 1) + 19(z-2) = 0$ is the equation of the plane
+	\end{enumerate}
+\end{example}
 
 \end{document}
