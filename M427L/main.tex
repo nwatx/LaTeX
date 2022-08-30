@@ -326,4 +326,92 @@ We want to extend length of vectors to norms, but also the dot product to scalar
 	\end{enumerate}
 \end{example}
 
+\subsection{Lecture--August 30, 2022}
+
+Error Function, \[ \text{erf}(x) = \frac{2}{\sqrt{\pi}}\int_0^x e^{-\frac{1}{2}t^2}dt \]
+$\text{erf}(0) = 0, \text{erf}(\infty) = 1$
+
+Another function with similar character comes from the simplest 2nd order linear
+differential equation with non-constant coefficients.
+
+\[
+	y''+xy'+y=0
+\]
+
+Since it's a second order equation there are 2 linearly independent solutions and
+
+\[
+	y_1(x)=c_1e^{-\frac{1}{2}x^2}, y_2(x) = c_2e^{-\frac{1}{2}x^2}\int_0^xe^{\frac{1}{2}t^2}dt
+\]
+
+Notice that $y_1$ is an even function, and that $y_2$ is an odd function. You should
+expect this solution to have one even, one odd.
+
+\[
+	\brackets*{\int f(x)g(x)dm}^2 + \int \int_{x < y}|f(x)g(y)-f(y)g(x)|^2 du dm
+	= \int |f(x)|^2dm\int \abs*{g(y)}^2dm
+\]
+
+\section{Differentiation and Linear Transformations}
+
+Most important concept from calculus is the notion of a limit. The 1st application
+of this is the definition of a derivative.
+\[
+	\lim_{h\rightarrow 0}\frac{f(x+h)-f(x)}{h} \rightarrow \text{does this limit exist?}
+\]
+The expression has a removal singularity at $h=0$.
+\begin{example}[Classic Example]
+	\[
+		\frac{\sin x}{x} = \frac{1}{x}\sum_{k=0}^\infty \frac{(-1)^k}{(2k+1)!}x^{2k+1}
+		= \sum_{k=0}^\infty \frac{(-1)^k}{(2k+1)!}x^{2k}
+	\]
+\end{example}
+because of the way the factorial function grows, this converges everywhere.
+Therefore, \[ \int_0^\infty \frac{sin x}{x} dx = \frac{\pi}{2} \]
+
+Write as \[
+	\lim_{h \rightarrow 0}\frac{\abs{f(x+h)-f(x)-f'(x)h}}{h} = 0
+\]
+
+This is better because it's easier to work with functions that go to $0$.
+\[
+	f(x+h)=f(x)+f'(x)h+ error
+\]
+
+the error goes to zero faster than the factor $h$. The 1st non-trivial term
+in the Taylor approximation for the function $f(x)$. $f(x)+f'(x)h$ = linear 
+approximation for the function. Linear structure is one of our basic tools
+for solving problems.
+
+$f(x, y, z)\rightarrow$ what does the derivative mean?
+
+\[
+	\vec{v}= (x, y, z), \vec{v}_0=(x_0, y_0, z_0)
+\]
+
+\[
+	f(x_0, y_0, z_0) = (\text{linear transformation})\begin{bmatrix}
+		x - x_0 \\
+		y - y_0 \\
+		z - z_0
+	\end{bmatrix}
+\]
+
+\[
+	\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z}\rightarrow \text{able to compute}
+\]
+
+action takes vectors to numbers. Matrices are arrays of numbers, they act on vectors
+and act on vectors: a $n$ x $m$ matrix.
+
+\begin{definition}[Gradient]
+	\[
+		\nabla = \begin{bmatrix}
+			\frac{\partial f}{\partial x} \\
+			\frac{\partial f}{\partial y} \\
+			\frac{\partial f}{\partial z}
+		\end{bmatrix}
+	\]
+\end{definition}
+
 \end{document}
