@@ -35,10 +35,10 @@ Conjunction of two propositions $p$ and $q$ is written $p\land q$
 \end{example}
 
 \begin{itemize}
-\item Disjunction is written $p\lor q$ and the disjunction between $p\lor q$ for $p=$ ``It is Tuesday'' and $q=$ ``it is morning'' is $p\lor q=$ ``It is Tuesday or it is morning''
-\item If your formula has $n$ variables then your truth table has $n+1$ columns because you have $n$ variables and one column for the truth value of the formula.
-\item The number of rows is given by the formula $2^n$
-\item Other connectives: exclusive or $\oplus$, implication $\rightarrow$, biconditional $\leftrightarrow$
+	\item Disjunction is written $p\lor q$ and the disjunction between $p\lor q$ for $p=$ ``It is Tuesday'' and $q=$ ``it is morning'' is $p\lor q=$ ``It is Tuesday or it is morning''
+	\item If your formula has $n$ variables then your truth table has $n+1$ columns because you have $n$ variables and one column for the truth value of the formula.
+	\item The number of rows is given by the formula $2^n$
+	\item Other connectives: exclusive or $\oplus$, implication $\rightarrow$, biconditional $\leftrightarrow$
 \end{itemize}
 
 \subsection{Lecture 2--August 25, 2022}
@@ -47,15 +47,15 @@ Let $p=$ ``I major in CS'', $q=$ ``I will find a good job'', $r=$ ``I can progra
 
 \begin{itemize}
 
-\item ``I will not find a good job unless I major in CS or I can program'': $(\neg p \land \neg r)\rightarrow \neg q$
+	\item ``I will not find a good job unless I major in CS or I can program'': $(\neg p \land \neg r)\rightarrow \neg q$
 
-\item ``I will not find a good job unless I major in CS and I can program'': $(\neg p \lor \neg r)\rightarrow \neg q$
+	\item ``I will not find a good job unless I major in CS and I can program'': $(\neg p \lor \neg r)\rightarrow \neg q$
 
-\item The \textbf{inverse} of an implication $p\rightarrow q$ is $\neg p\rightarrow \neg q$.
-Therefore, ``If I'm a CS major then I can program'' has an inverse of 
-``If I am not a CS Major then I'm not able to program.''
+	\item The \textbf{inverse} of an implication $p\rightarrow q$ is $\neg p\rightarrow \neg q$.
+	      Therefore, ``If I'm a CS major then I can program'' has an inverse of
+	      ``If I am not a CS Major then I'm not able to program.''
 
-\item The \textbf{converse} of an implication $p\rightarrow q$ is $q\rightarrow p$.
+	\item The \textbf{converse} of an implication $p\rightarrow q$ is $q\rightarrow p$.
 
 \end{itemize}
 
@@ -69,10 +69,10 @@ Therefore, ``If I'm a CS major then I can program'' has an inverse of
 		\hline
 		$p$ & $q$ & $p\rightarrow q$ & $\neg q\rightarrow \neg p$ \\
 		\hline
-		T & T & T & T \\
-		T & F & F & F \\
-		F & T & T & T \\
-		F & F & T & T \\
+		T   & T   & T                & T                          \\
+		T   & F   & F                & F                          \\
+		F   & T   & T                & T                          \\
+		F   & F   & T                & T                          \\
 		\hline
 	\end{tabular}
 
@@ -131,7 +131,7 @@ Validity and satisfiability
 \end{example}
 
 \begin{example}
-	Let $F_1$ and $F_2$ be two propositional formulas. Suppose $F_1$ is true under $I$. 
+	Let $F_1$ and $F_2$ be two propositional formulas. Suppose $F_1$ is true under $I$.
 	Then, $F_2\and \neg F_1$ evaluates to $\false$ under $I$ (the ``and'' shortcuts and forces the whole equation to be false).
 \end{example}
 
@@ -172,6 +172,88 @@ Answer: We can use the \textbf{truth table method} and prove that the formula is
 	$(p\rightarrow q)\leftrightarrow (\neg q \rightarrow \neg p)$ is a tautology.
 
 	$(p\land q)\lor \neg p$ is not a tautology.
+\end{example}
+
+\subsection{Lecture--August 30, 2022}
+
+Implication: Formula $F_1$ implies $F_2$ (written $F_1\implies F_2$) iff
+$\forall I, I\models F_1\rightarrow F_2$
+
+\begin{example}[Implication Removal]
+	Is $(p\land q)\rightarrow p$ true? False. Let $p=F, q=T$
+
+	\[
+		\begin{array}{|c c|c|c|}
+			\hline
+			p & q & p\rightarrow q & \neg p \lor q \\
+			\hline
+			T & T & T              & T             \\
+			T & F & F              & F             \\
+			F & T & T              & T             \\
+			F & F & T              & T             \\
+			\hline
+		\end{array}
+	\]
+\end{example}
+
+\begin{definition}[Implication Removal]
+	$p\rightarrow q$ is equivalent to $\neg p\lor q$
+\end{definition}
+
+\subsubsection{Important equivalences}
+
+\begin{itemize}
+	\item Law of double negation: $\neg \neg p \equiv p$
+	\item Identity laws: $p\land T \equiv p$, $p\lor F \equiv F$
+	\item Domination Laws: $p\lor T \equiv T$, $p\land F \equiv p$
+	\item Idempotent Laws: $p\land p \equiv p$, $p\lor p \equiv p$
+	\item Negation Laws: $p\land \neg p\equiv F$, $p\lor \neg p \equiv T$
+\end{itemize}
+
+\begin{note}[Commutativity and Distributivity Laws]
+	\begin{itemize}
+		\item Commutative Laws: $p\lor q \equiv q\lor p$, $p\land q \equiv q\land p$
+		\item Distributivity Law 1: $(p\lor (q\land r)) \equiv ((p\lor q)\land (p\lor r))$
+		\item Distributivity Law 2: $(p\land (q\lor r)) \equiv ((p\land q)\lor (p\land r))$
+		\item Associativity Laws: \[
+			      p\lor (q\lor r) \equiv (p\lor q)\lor r \]
+		      \[ p\land (q\land r)\equiv (p\land q)\land r \]
+		\item Absorption 1: $p\land (p\lor q) \equiv p$
+		\item Absorption 2: $p\lor (p\land q) \equiv p$
+	\end{itemize}
+\end{note}
+
+\begin{definition}[De Morgan's Laws]
+	Let $a=$ ``John took CS311'' and $b=$ ``John took CS312''. What does
+	$\neg (a\land b)$ mean? It means ``John did not take both CS311 and CS312''.
+	Therefore, John didn't take either CS311 or CS312.
+	\[
+		\neg(a\land b) \equiv \neg a\lor \neg b
+	\]
+\end{definition}
+
+\begin{example}[Prove $\neg (p\land (\neg p\land q)) \equiv \neg p\land \neg q$]
+	\[
+		\begin{array}{|c c c|c|c|}
+			\hline
+			p & \neg p & q & p\land (\neg p\land q) & \neg (p\land (\neg p\land q)) \\
+			\hline
+			T & F      & T & T                      & F                             \\
+			T & F      & F & F                      & T                             \\
+			F & T      & T & F                      & T                             \\
+			F & T      & F & F                      & T                             \\
+			\hline
+		\end{array}
+	\]
+\end{example}
+
+\begin{example}
+	If Jill carries an umbrella, it is raining. Jill is not carrying an umbrella. Therefore, it is not raining.
+	\[
+		((u\rightarrow r)\land (\neg u))\rightarrow \neg r
+	\]
+
+	This can be counter-modeled with $r=\true, u=\false$.
 \end{example}
 
 \end{document}
