@@ -11,13 +11,14 @@
 
 \begin{document}
 \maketitle
+\tableofcontents
 
 
 \chapter{Vectors}
 
 \section{Vector Basics}
 
-\subsection{Lecture 1--August 22, 2022}
+\subsection{Lecture--August 22, 2022}
 
 Riemann integrals deal with functions that are basically continuous.
 You should use the notation $(x, y, z)$ or $x\hat{i} + y\hat{j} + z\hat{k}$
@@ -50,7 +51,7 @@ Spherical coordinates are given by $(r, \theta, \phi)$
 	Dot product: $\vec{x}\cdot \vec{y} = \sum x_i y_i$ is a scalar operation
 \end{definition}
 
-\subsection{Lecture 2--August 23, 2022}
+\subsection{Lecture--August 23, 2022}
 
 \begin{definition}[Coordinate Systems]
 
@@ -145,7 +146,7 @@ Properties:
 	      \]
 \end{itemize}
 
-\subsection{Lecture 3--August 25, 2022}
+\subsection{Lecture--August 25, 2022}
 
 How to think about data: strings, words, ``columns'', rectangular arrays.
 
@@ -379,7 +380,7 @@ This is better because it's easier to work with functions that go to $0$.
 \]
 
 the error goes to zero faster than the factor $h$. The 1st non-trivial term
-in the Taylor approximation for the function $f(x)$. $f(x)+f'(x)h$ = linear 
+in the Taylor approximation for the function $f(x)$. $f(x)+f'(x)h$ = linear
 approximation for the function. Linear structure is one of our basic tools
 for solving problems.
 
@@ -413,5 +414,106 @@ and act on vectors: a $n$ x $m$ matrix.
 		\end{bmatrix}
 	\]
 \end{definition}
+
+\subsection{Lecture--September 1, 2021}
+
+\begin{definition}[Laplacian]
+	The Laplacian is defined by:
+	\[
+		\sum_{i=1}^n \frac{\partial^2 f}{\partial x_i^2}
+	\]
+
+	Fundamental operator for partial differential equations. Keep in mind that
+	Shrodinger equation and Maxwell's equations are partial differential equations.
+
+	In physics $\Delta = \nabla\cdot \nabla$
+\end{definition}
+
+\begin{definition}[Deriative]
+	$f:\mathbb{R}^n\rightarrow \mathbb{R}^m$--define the derivative as the existence
+	of a linear transformation such that the formula holds:
+	\[
+		\lim_{\norm{\vec{x}-\vec{a}}\rightarrow 0}
+		\frac{\norm{f(\vec{x}) - f(\vec{a}) - (Df)\vec{a}(\vec{x}-\vec{a})}_{\mathbb{R}^m}}
+		{\norm{\vec{x}-\vec{a}}_{\mathbb{R}^n}} \rightarrow 0
+	\]
+	the linear transformation $Df$ involves data of evaluated at points:
+	\[
+		Df(\vec{a}) = f(\vec{a})
+	\]
+\end{definition}
+Sometimes this can be written as $(Df)_{\vec{a}}$ or
+$Df\rvert_{\vec{x}=\vec{a}}$. The transformation $Df$ takes vectors in
+$\mathbb{R}^n$ to vectors in $\mathbb{R}^m$. $\vec{x}-\vec{a}$ is a column vector.
+If $m=1$, $(Df)(a)(\vec{x}-\vec{a})$ corresponds to $\nabla f\cdot (\vec{x}-\vec{a})=$ numerical value.
+
+The error term is $\text{Error}(\vec{x}, \vec{a})=\norm{f(x)-f(a)-(Df)(a)(x-a)}$
+
+\begin{definition}[Jacobian Matrix]
+	$(Df)(\vec{a})$ becomes the Jacobian matrix.
+
+	\[
+		\begin{bmatrix}
+			\frac{\partial f_1}{\partial x_1} & \cdots & \frac{\partial f_1}{\partial x_n} \\
+			\vdots                            & \ddots & \vdots                            \\
+			\frac{\partial f_m}{\partial x_1} & \cdots & \frac{\partial f_m}{\partial x_n}
+		\end{bmatrix}
+	\]
+\end{definition}
+
+For $n=m$ (square matrix) sometimes the \textbf{determinant of $J$ is called the Jacobian}.
+Jacobian acts on vectors in $\mathbb{R}^n$.
+
+In terms of rows:
+\[
+	J = \begin{bmatrix}
+		\nabla f_1 \\
+		\nabla f_2 \\
+		\vdots     \\
+		\nabla f_m
+	\end{bmatrix}
+\]
+\[
+	J(\vec{x}-\vec{a}) = \begin{bmatrix}
+		\nabla f_1\cdot (\vec{x}-\vec{a}) \\
+		\nabla f_2\cdot (\vec{x}-\vec{a}) \\
+		\vdots                            \\
+		\nabla f_m\cdot (\vec{x}-\vec{a})
+	\end{bmatrix}
+\]
+
+\begin{remark}[Trace and Divergence]
+	Note that the trace of $J$ is $\sum_{i=1}^{n}\frac{\partial f_i}{\partial x_i}$ which
+	is also the divergence of the vector field $\nabla \cdot F$.
+\end{remark}
+
+Formula called the change of variables theorem.
+
+$dudv=|\det J|dxdy\rightarrow $ connect with change of variables theorem.
+
+Fact not emphasized within the text is that the determinant depends on
+orientation--this is why we put absolute value.
+
+\begin{definition}[Vector Spaces]
+	In mathematics, physics, and engineering, a vector space (also called a
+	linear space) is a set whose elements, often called vectors, may be added 
+	together and multiplied ("scaled") by numbers called scalars. 
+	Scalars are often real numbers, but can be complex numbers or, more 
+	generally, elements of any field. The operations of vector addition and 
+	scalar multiplication must satisfy certain requirements, called vector
+	axioms. The terms real vector space and complex vector space are often used 
+	to specify the nature of the scalars: real coordinate space or complex coordinate space.
+\end{definition}
+
+Matrices are arrays:
+\[
+	\begin{bmatrix}
+		a_{11} & a_{12} & \cdots & a_{1n} \\
+		a_{21} & a_{22} & \cdots & a_{2n} \\
+		\vdots & \vdots & \ddots & \vdots \\
+		a_{m1} & a_{m2} & \cdots & a_{mn}
+	\end{bmatrix}
+\]
+
 
 \end{document}
