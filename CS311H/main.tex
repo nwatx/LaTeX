@@ -14,11 +14,12 @@
 
 \begin{document}
 \maketitle
+\tableofcontents
 
-\chapter{Chapter 1}
+\chapter{Logic and Sets}
 
-\section{Predicate Logic}
-\subsection{Lecture 1--August 23, 2022}
+\section{Lecture --August 23, 2022}
+\subsection{Predicate Logic}
 
 There are three basic logical connectives: \textbf{and}, \textbf{or}, \textbf{not}
 which are denoted by $\land$, $\lor$, and $\neg$ respectively.
@@ -41,7 +42,7 @@ Conjunction of two propositions $p$ and $q$ is written $p\land q$
 	\item Other connectives: exclusive or $\oplus$, implication $\rightarrow$, biconditional $\leftrightarrow$
 \end{itemize}
 
-\subsection{Lecture 2--August 25, 2022}
+\section{Lecture--August 25, 2022}
 
 Let $p=$ ``I major in CS'', $q=$ ``I will find a good job'', $r=$ ``I can program''
 
@@ -97,7 +98,7 @@ Let $p=$ ``I major in CS'', $q=$ ``I will find a good job'', $r=$ ``I can progra
 	\end{enumerate}
 \end{example}
 
-\section{Validity and Satisfiability}
+\subsection{Validity and Satisfiability}
 
 Validity and satisfiability
 \begin{itemize}
@@ -174,7 +175,7 @@ Answer: We can use the \textbf{truth table method} and prove that the formula is
 	$(p\land q)\lor \neg p$ is not a tautology.
 \end{example}
 
-\subsection{Lecture--August 30, 2022}
+\section{Lecture--August 30, 2022}
 
 Implication: Formula $F_1$ implies $F_2$ (written $F_1\implies F_2$) iff
 $\forall I, I\models F_1\rightarrow F_2$
@@ -200,7 +201,7 @@ $\forall I, I\models F_1\rightarrow F_2$
 	$p\rightarrow q$ is equivalent to $\neg p\lor q$
 \end{definition}
 
-\subsubsection{Important equivalences}
+\subsection{Important equivalences}
 
 \begin{itemize}
 	\item Law of double negation: $\neg \neg p \equiv p$
@@ -256,7 +257,7 @@ $\forall I, I\models F_1\rightarrow F_2$
 	This can be counter-modeled with $r=\true, u=\false$.
 \end{example}
 
-\section{First Order Logic}
+\subsection{First Order Logic}
 \begin{itemize}
 	\item The building blocks of propositional logic were propositions
 	\item In first-ordre logic there are three kinds of basic building blocks:
@@ -270,7 +271,124 @@ $\forall I, I\models F_1\rightarrow F_2$
 	      $P$ holds for $c$.
 	\item The truth value of $\texttt{even(2)} = \true$
 	\item Another example: Suppose $Q(x, y)$ denotes $x=y+3$ what is the value of
-	$Q(3, 0)$? $\true$ 
+	      $Q(3, 0)$? $\true$
 \end{itemize}
+
+\section{Lecture--September 1, 2022}
+\begin{itemize}
+	\item In propositional logic, the truth value depends on a truth assignment
+	\item In FOL, truth depends on interpretation over some domain $D$
+	\item Universe of discourse (domain) + what elements in the domain the variables map to
+\end{itemize}
+
+\begin{example}[Semantics of First-Order Logic]
+	Consider a FOL formula $\neg P(x)$
+
+	\[D=\set{A, B}, P(A)=\true, P(B)=\false, x=A\]
+
+	This is a falsifying interpretation
+\end{example}
+
+\begin{example}
+	Consider $I$ over domain $D=\set{1,2}$
+
+	\begin{itemize}
+		\item $P(1, 1)=P(1,2)=\true, P(2,1)=P(2,2)=\false$
+		\item $Q(1)=\false, Q(2)=\true$
+		\item $x=1, y=2$
+		\item What is $P(x, y)\land Q(y)$ under $I$? True.
+		\item What is truth value of $P(y, x)\rightarrow Q(y)$ under $I$? True.
+		\item Waht is truth value of $P(x, y)\rightarrow Q(x)$ under $I$? False.
+	\end{itemize}
+\end{example}
+
+\subsection{Quantifiers}
+\begin{itemize}
+	\item Real power of first-order logic over propositional logic: quantifiers.
+	\item There are two quantifiers in first-order logic:
+	\begin{enumerate}
+		\item Universal quantifier (for \textbf{all} objects): $\forall x P(x)$
+		\item Existential quantifier (for \textbf{some} object): $\exists x P(x)$
+	\end{enumerate}
+\end{itemize}
+
+\begin{example}
+	Let $D=\set{a,b}, P(a)=\true,P(b)=\false$ then $\forall x.P(x)$ is false.
+\end{example}
+
+\begin{example}
+	Consider $D=\mathbb{R}$ and $P(x)=x^2\geq x$ then $\forall x.P(x)$ is false.
+\end{example}
+
+\begin{itemize}
+	\item In first-order logic, domain is required to be \textbf{non-empty}.
+\end{itemize}
+
+\begin{example}
+	Consider the domain of reals and predicate $P(x)$ with interpretation $x<0$.
+	Then, $\exists x.P(x)$ is true.
+
+\end{example}
+
+\begin{itemize}
+	\item $\forall x.P(x)$ is true iff $P(o_1) \land P(o_2) \land \ldots \land P(o_n)$ is true
+	\item $\exists x.P(x)$ is true iff $P(o_1) \lor P(o_2) \lor \ldots \lor P(o_n)$ is true
+\end{itemize}
+
+$\exists x.(\text{even}(x)\land \text{gt}(x, 100))$ is a valid formula in FOL.
+
+\begin{example}[What is the truth value of the following formulas?]
+	\begin{itemize}
+		\item $\forall x.(even(x)\rightarrow div4(x))$ False. $x=2$ is a counter-model.
+		\item $\exists x.(\neg div4(x)\land even(x))$ True.
+		\item $\exists x. (\neg div4(x)\rightarrow even(x))$ True.
+	\end{itemize}
+\end{example}
+
+\begin{example}[Translating English into formulas]
+	Assuming $\texttt{freshman}(x)$ means ``$x$ is a freshman'' and $\texttt{inCS311}(x)$
+	to be $x$ is taking CS311, then ``someone in CS311 is a freshman'' is
+	$\exists x.(\texttt{freshman}(x)\land \texttt{inCS311}(x))$.
+
+	No one in CS311 is a freshman: $\forall x.(freshman(x)\rightarrow \neg inCS311(x))$
+
+	Everyone taking CS311 are freshmen: $\forall x.(inCS311(x)\rightarrow freshman(x))$
+	
+	All freshmen take CS311: $\forall x.(freshman(x)\rightarrow inCS311(x))$
+\end{example}
+
+\subsection{DeMorgan's Laws for Propositional Logic}
+
+\begin{align*}
+	\neg (p\land q)&\equiv \neg p \lor \neg q \\
+	\neg (p\lor q)&\equiv \neg p \land \neg q \\
+	\neg \forall x.P(x)&\equiv \exists x.\neg P(x) \\
+	\neg \exists x.P(x)&\equiv \forall x.\neg P(x)
+\end{align*}
+
+\begin{example}
+	We can change $\neg \exists x.(inCS311(x)\land freshman(x))$ to
+	$\forall x.(\neg inCS311(x)\lor \neg freshman(x))$ which is equivalent to
+	$\forall x.(inCS311(x)\rightarrow \neg freshman(x))$.
+\end{example}
+
+\subsection{Nested Quantifiers}
+\begin{itemize}
+	\item Sometimes may be necessary to use multiple quantifiers
+	\item For example, can't express ``EEverybody loves someone'' using a single quantifier.
+	\item Suppose predicate $L(x, y)$ means ``$x$ loves $y$''.
+	\item What does $\forall x.\exists y.L(x, y)$ mean? ``Everybody loves someone''
+	\item What does $\exists y.\forall x.L(x, y)$ mean? ``There is someone who is loved by everybody''
+\end{itemize}
+
+\begin{example}[More Nested Quantifier Examples]
+	\begin{itemize}
+		\item ``Someone loves everyone'' $\exists x.\forall y.L(x, y)$
+		\item ``There is someone who doesn't love anyone' $\exists x.\forall y.\neg L(x, y)$
+		\item ``There is someone who is not loved by anyone'' $\exists x.\forall y. \neg L(y, x)$
+		\item ``Everyone loves everyone'' $\forall x.\forall y.L(x, y)$
+		\item ``Someone doesn't love themselves'': $\exists x.\neg L(x, x)$
+	\end{itemize}
+\end{example}
 
 \end{document}
