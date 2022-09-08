@@ -515,4 +515,121 @@ Matrices are arrays:
 	\end{bmatrix}
 \]
 
+\section{Lecture--September 6, 2022}
+
+Topics for today:
+\begin{itemize}
+	\item Deriviative as a linear transformation
+	\item Gradient and Jacobian
+	\item Hessian -- role of square matrices
+	\item Matrices -- determinants -- eigenvalues
+	\item Linear approximation equation for a tangent plane
+\end{itemize}
+
+\subsection{Derivative as a Linear Transformation}
+
+$f:\mathbb{R}^n\rightarrow \mathbb{R}^m$ -- why? role of matrices.
+
+\begin{definition}[Definition of the Derivative]
+	Let $\vec{x}=(x_1, \ldots, x_n)$ and $x_0=$ point
+	that we consider. We also write down $f$, a vector-valued function.
+
+	\[
+		\lim_{\norm{\vec{x}-\vec{x}_0}\rightarrow 0}
+		\frac{\norm{f(\vec{x}) - f(\vec{x}_0) - (Df)\vec{x}_0(\vec{x}-\vec{x}_0)}_{\mathbb{R}^m}}
+		{\norm{\vec{x}-\vec{x}_0}_{\mathbb{R}^n}}
+	\]
+
+	Why does the formal statement of the chain rule make sense.
+
+	\[
+		h: \mathbb{R}^n + \mathbb{R}^m, g: \mathbb{R}^m \mathbb{R}^l
+	\]
+
+	set $f=g\circ h$ and $f(x) = g(h(x))$
+
+	The derivative of $f$ at $x_0 = (Df)(x_0) = p\times n$ matrix
+
+	\[
+		(Df)(x_0) = Dg(h(x_0))Dh(x_0)
+	\]
+
+\end{definition}
+
+
+Because in many variables, the derivative is a linear transformation and is
+represented by matrices. Represent the gradient by an example:
+
+\begin{example}[Gradient Representation]
+	\[
+		\vec{v}=x\hat{i} + y\hat{j}, f(\vec{v}) = (1-\abs{v}^2)e^{-\frac{1}{2}\abs{v}^2}
+	\]
+
+	calculate the gradient
+
+	\[
+		\nabla f = \begin{bmatrix}
+			\frac{\partial f}{\partial x} \\
+			\frac{\partial f}{\partial y}
+		\end{bmatrix} = \begin{bmatrix}
+			-2xe^{-\frac{1}{2}\abs{v}^2} - x(1-\abs{v}^2)e \\
+			-v(3-\abs{v}^2)e^{-\frac{1}{2}\abs{v}^2}
+		\end{bmatrix}
+	\]
+\end{example}
+
+Beause of the multi-direction approach, horizontal approach requires the 1st entry
+to be $\frac{\partial f}{\partial x}$ and the 2nd entry to be $\frac{\partial f}{\partial y}$.
+
+Hence, $(Df)(\vec{v}_0)$ is required to be the gradient $\nabla F$ evaluated
+at the point $\vec{v}_0$ and the expression
+
+\[
+	(Df)(\vec{v}_0)(\vec{v}-\vec{v}_0) = (\nabla f)\vert_{\vec{v}_0}\cdot (\vec{v}-\vec{v_0})
+\]
+
+Approach from different direction forces for a function $f:\mathbb{R}^n$ to
+$\mathbb{R}^m$ that the linear transformation corresponding to the derivative
+is realized by the Jacobian matrix
+
+\[
+	\begin{bmatrix}
+		\frac{\partial f_1}{\partial x_1} & \cdots & \frac{\partial f_1}{\partial x_n} \\
+		\vdots & \ddots & \vdots \\
+		\frac{\partial f_m}{\partial x_1} & \cdots & \frac{\partial f_m}{\partial x_n}	
+	\end{bmatrix} = 
+	\begin{bmatrix}
+		\nabla f_1 \\
+		\nabla f_2 \\
+		\vdots \\
+		\nabla f_m
+	\end{bmatrix}
+\]
+
+In addition, represent the Jacobian by columns
+
+\[
+	\angles*{\frac{\partial \vec{f}}{\partial x_1}, \frac{\partial \vec{f}}{\partial x_2}, \ldots, \frac{\partial \vec{f}}{\partial x_n}}
+\]
+
+\begin{example}
+	In $\mathbb{R}^3$ a surface is a two-dimensional object--usually with curvature.
+	A plane is the simplest two-dimensional object. The equation of a plan follows the form
+	\[
+		ax + by + cz = 0
+	\]
+
+	higher dimensions -- say in $\mathbb{R}^n$ a plane should have dimension one less ($n-1$)
+	typically this is called a hyper plane.
+
+	\[
+		\sum_{i=1}{n}a_ix_i = A
+	\]
+
+	surfaces of rotation
+
+	pick a point $m$ in the equation surface -- find a tangent plane, a normal to the plane
+	and a linear approximation for $z=f(\sqrt{x^2 + y^2})$. Assume $f$ is smooth.
+\end{example}
+
 \end{document}

@@ -9,4 +9,6 @@
 \contentsline {subsection}{\numberline {1.2.2}Lecture--August 30, 2022}{8}{subsection.1.2.2}%
 \contentsline {section}{\numberline {1.3}Differentiation and Linear Transformations}{8}{section.1.3}%
 \contentsline {subsection}{\numberline {1.3.1}Lecture--September 1, 2021}{9}{subsection.1.3.1}%
+\contentsline {section}{\numberline {1.4}Lecture--September 6, 2022}{10}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Derivative as a Linear Transformation}{10}{subsection.1.4.1}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

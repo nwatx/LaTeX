@@ -10,4 +10,21 @@
 \contentsline {subsection}{\numberline {1.4.1}Quantifiers}{7}{subsection.1.4.1}%
 \contentsline {subsection}{\numberline {1.4.2}DeMorgan's Laws for Propositional Logic}{8}{subsection.1.4.2}%
 \contentsline {subsection}{\numberline {1.4.3}Nested Quantifiers}{8}{subsection.1.4.3}%
+\contentsline {section}{\numberline {1.5}Lecture--September 6, 2022}{9}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}Satisfiability and validity in FOL}{9}{subsection.1.5.1}%
+\contentsline {subsection}{\numberline {1.5.2}Equivalence}{9}{subsection.1.5.2}%
+\contentsline {subsection}{\numberline {1.5.3}Rules of Inference}{9}{subsection.1.5.3}%
+\contentsline {subsubsection}{\nonumberline Modus Ponens}{9}{subsubsection*.3}%
+\contentsline {subsubsection}{\nonumberline Modus Tollens}{9}{subsubsection*.5}%
+\contentsline {subsubsection}{\nonumberline Hypothetical Syllogism}{10}{subsubsection*.7}%
+\contentsline {subsubsection}{\nonumberline Or Introduction}{10}{subsubsection*.9}%
+\contentsline {subsubsection}{\nonumberline Or Elimination}{10}{subsubsection*.11}%
+\contentsline {subsubsection}{\nonumberline And Introduction}{10}{subsubsection*.13}%
+\contentsline {subsubsection}{\nonumberline Resolution}{10}{subsubsection*.15}%
+\contentsline {section}{\numberline {1.6}Lecture--September 8, 2022}{10}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}Universal Instantiation}{10}{subsection.1.6.1}%
+\contentsline {subsection}{\numberline {1.6.2}Universal Generalization}{11}{subsection.1.6.2}%
+\contentsline {subsubsection}{\nonumberline Caveats about universal generalization}{11}{subsubsection*.17}%
+\contentsline {subsection}{\numberline {1.6.3}Existential Instantiation}{11}{subsection.1.6.3}%
+\contentsline {subsection}{\numberline {1.6.4}Existential Generalization}{12}{subsection.1.6.4}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

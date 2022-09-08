@@ -306,10 +306,10 @@ $\forall I, I\models F_1\rightarrow F_2$
 \begin{itemize}
 	\item Real power of first-order logic over propositional logic: quantifiers.
 	\item There are two quantifiers in first-order logic:
-	\begin{enumerate}
-		\item Universal quantifier (for \textbf{all} objects): $\forall x P(x)$
-		\item Existential quantifier (for \textbf{some} object): $\exists x P(x)$
-	\end{enumerate}
+	      \begin{enumerate}
+		      \item Universal quantifier (for \textbf{all} objects): $\forall x P(x)$
+		      \item Existential quantifier (for \textbf{some} object): $\exists x P(x)$
+	      \end{enumerate}
 \end{itemize}
 
 \begin{example}
@@ -353,17 +353,17 @@ $\exists x.(\text{even}(x)\land \text{gt}(x, 100))$ is a valid formula in FOL.
 	No one in CS311 is a freshman: $\forall x.(freshman(x)\rightarrow \neg inCS311(x))$
 
 	Everyone taking CS311 are freshmen: $\forall x.(inCS311(x)\rightarrow freshman(x))$
-	
+
 	All freshmen take CS311: $\forall x.(freshman(x)\rightarrow inCS311(x))$
 \end{example}
 
 \subsection{DeMorgan's Laws for Propositional Logic}
 
 \begin{align*}
-	\neg (p\land q)&\equiv \neg p \lor \neg q \\
-	\neg (p\lor q)&\equiv \neg p \land \neg q \\
-	\neg \forall x.P(x)&\equiv \exists x.\neg P(x) \\
-	\neg \exists x.P(x)&\equiv \forall x.\neg P(x)
+	\neg (p\land q)     & \equiv \neg p \lor \neg q  \\
+	\neg (p\lor q)      & \equiv \neg p \land \neg q \\
+	\neg \forall x.P(x) & \equiv \exists x.\neg P(x) \\
+	\neg \exists x.P(x) & \equiv \forall x.\neg P(x)
 \end{align*}
 
 \begin{example}
@@ -390,5 +390,288 @@ $\exists x.(\text{even}(x)\land \text{gt}(x, 100))$ is a valid formula in FOL.
 		\item ``Someone doesn't love themselves'': $\exists x.\neg L(x, x)$
 	\end{itemize}
 \end{example}
+
+\section{Lecture--September 6, 2022}
+
+\begin{example}
+	\begin{itemize}
+		\item Every UT student has a friend: $\forall x.(atUT(x)\land student(x)\rightarrow \exists y.friends(x, y))$
+		\item $\exists x.(atUT(x)\land student(x))\land \forall y. \neg friends(x, y)$
+		\item $\forall x \forall y (atUT(x)\land student(x) \land atUT(y)\land student(y)) \rightarrow friends(x, y))$
+	\end{itemize}
+\end{example}
+
+\subsection{Satisfiability and validity in FOL}
+
+\begin{itemize}
+	\item The concepts of satisfiability validty also important in FOL
+	\item FOL $F$ is satisfiable if there exists some domain and some interpretation such that $F$ is true.
+	\item Example: Prove that $\forall x.(P(x)\rightarrow Q(x))$ is satisfiable. Solution:
+	      Let $P(x)$ be false. Let the domain $D = \set{x}$
+	\item Example: Prove that $\forall x.(P(x)\rightarrow Q(x))$ is satisfiable. Solution:
+	      Let $P(x)$ be true, let $Q(x)$ be false. Let the domain $D = \set{x}$
+\end{itemize}
+
+\subsection{Equivalence}
+\begin{itemize}
+	\item Two formulas $F_1$ and $F_2$ are equivalent iff $F_1\leftrightarrow F_2$ is valid.
+	\item We could prove equivalence using truth tables but not possible in FOL.
+	\item However, we can still use known equivalences to rewrite one as the other.
+\end{itemize}
+
+\begin{example}
+	Prove that \[
+		\neg(\forall x.(P(x)\rightarrow Q(x))) \equiv \exists x.(P(x)\land \neg Q(x))
+	\]
+\end{example}
+
+\subsection{Rules of Inference}
+
+\begin{itemize}
+	\item We can prove validity in FOL by using \textbf{proof rules}
+	\item Proof rules are written as \textbf{rules of inference}
+	\item An example inference rule:
+
+	      \begin{center}
+		      \begin{tabular}{c}
+			      $F_1$                     \\
+			      $F_2$                     \\
+			      \hline
+			      $\therefore F_1\land F_2$ \\
+		      \end{tabular}
+	      \end{center}
+\end{itemize}
+
+\subsubsection{Modus Ponens}
+
+The most basic inference rule is modus ponens:
+
+\begin{center}
+	\begin{tabular}{c}
+		$F_1$                \\
+		$F_1\rightarrow F_2$ \\
+		\hline
+		$\therefore F_2$     \\
+	\end{tabular}
+\end{center}
+
+\begin{itemize}
+	\item Modus ponens applicable to both propositional logic and first-order logic.
+\end{itemize}
+
+\subsubsection{Modus Tollens}
+
+\begin{itemize}
+	\item Second important inference rule is \textbf{modus tollens}:
+\end{itemize}
+
+\begin{center}
+	\begin{tabular}{c}
+		$F_1\rightarrow F_2$  \\
+		$\neg F_2$            \\
+		\hline
+		$\therefore \neg F_1$ \\
+	\end{tabular}
+\end{center}
+
+\subsubsection{Hypothetical Syllogism}
+
+Implication is transitive.
+
+\begin{center}
+	\begin{tabular}{c}
+		$F_1\rightarrow F_2$            \\
+		$F_2\rightarrow F_3$            \\
+		\hline
+		$\therefore F_1\rightarrow F_3$ \\
+	\end{tabular}
+\end{center}
+
+\subsubsection{Or Introduction}
+
+\begin{center}
+	\begin{tabular}{c}
+		$F_1$                    \\
+		\hline
+		$\therefore F_1\lor F_2$ \\
+	\end{tabular}
+\end{center}
+
+\subsubsection{Or Elimination}
+
+\begin{center}
+	\begin{tabular}{c}
+		$F_1\lor F_2$    \\
+		$\neg F_2$       \\
+		\hline
+		$\therefore F_1$ \\
+	\end{tabular}
+\end{center}
+
+\subsubsection{And Introduction}
+
+\begin{center}
+	\begin{tabular}{c}
+		$F_1$                     \\
+		$F_2$                     \\
+		\hline
+		$\therefore F_1\land F_2$ \\
+	\end{tabular}
+\end{center}
+
+\subsubsection{Resolution}
+
+\begin{center}
+	\begin{tabular}{c}
+		$F_1\lor F_2$            \\
+		$\neg F_1\lor \neg F_3$  \\
+		\hline
+		$\therefore F_2\lor F_3$ \\
+	\end{tabular}
+\end{center}
+
+Proof: $\phi_1$ must be either true or false. If $\phi_1$ is true, then $\phi_3$
+must be true. If $\phi_1$ is false then $\phi_2$ must be true. Therefore either
+$\phi_2$ or $\phi_3$ must be true.
+
+\begin{example}
+	Assume the following:
+
+	$S, C, L, H$
+
+	\[
+		\begin{tabular}{c}
+			$\neg S \land C$      \\
+			$L\rightarrow S$      \\
+			$\neg L\rightarrow H$ \\
+			$H\rightarrow back$
+		\end{tabular}
+	\]
+
+	We know that $\neg S$ is true, so $S$ is false. Therefore, for $L\rightarrow S$
+	to be true, $L$ must be false. In order for $\neg L\rightarrow H$ to be true, $H$ must be true.
+	Since $H$ is true we know we must be back by sunset because that's the only way to make
+	the last expression true.
+\end{example}
+
+\section{Lecture--September 8, 2022}
+
+\begin{itemize}
+	\item Generalization and the other one is called instantiation
+\end{itemize}
+
+\subsection{Universal Instantiation}
+
+\begin{itemize}
+	\item If we know that something is true for all members of a group we can
+	conclude is also true for a specific member of this group.
+	\item This idea is called \textbf{universal instantiation}
+
+	\[
+		\begin{array}[]{c}
+			\forall x.(F(x)) \\
+			\hline
+			F(a)
+		\end{array}
+	\]
+\end{itemize}
+
+\begin{example}
+	Consider predicates $man(X)$ and $mortal(x)$ and the hypotheses:
+
+	\begin{itemize}
+		\item All men are mortal: $\forall x. (man(x\rightarrow mortal(x)))$
+		\item Socrates is a man: $man(socrates)$
+		\item Prove mortal(Socrates)
+		\item \[
+			man(socrates)\rightarrow mortal(socrates)
+		\]
+
+		\[
+			mortal(socrates) (2, 3, modus\: ponens)
+		\]
+	\end{itemize}
+\end{example}
+
+\subsection{Universal Generalization}
+\begin{itemize}
+	\item Prove a claim for an \textbf{arbitrary} element in the domain.
+	\item Since we've made no assupmtions proof should apply to all elements in the domain.
+	\item The correct reasoning is captured by \textbf{universal generalization}
+	\item ``arbitrary'' means an objects introduced through universal instantiation.
+
+	\[
+		\begin{array}[]{c}
+			P(c) \text{for arbitrary c} \\
+			\hline
+			\forall x. P(x)
+		\end{array}
+	\]
+\end{itemize}
+
+\begin{example}
+	Prove $\forall x. Q(x)$ from the hypothesis:
+
+	\begin{enumerate}
+		\item $\forall x. (P(x)\rightarrow Q(x))$
+		\item $\forall x. P(x)$
+		\item $P(a)$ (2, U-inst)
+		\item $P(a)\rightarrow Q(a)$ (1, U-inst)
+		\item $Q(a)$ (3, 4, MP)
+		\item $\forall x. Q(x)$ (5, U-gen)
+	\end{enumerate}
+\end{example}
+
+\subsubsection{Caveats about universal generalization}
+\begin{itemize}
+	\item When using universal generalization need to ensure that $c$ is truly arbitrary
+	\item If you prove something about a specific person Mary, you cannot make generalizations about all people.
+\end{itemize}
+
+\subsection{Existential Instantiation}
+\begin{itemize}
+	\item Consider formula $\exists x. P(x)$
+	\item We know there is an element $c$ in the domain for which $P(c)$ is true.
+	\item This is called \textbf{existential instantiation}
+	\[
+		\begin{array}[]{c}
+			\exists x. P(x) \\
+			\hline
+			P(c)
+			
+		\end{array}
+	\]
+
+	\item Here $c$ is a \textbf{fresh} name (i.e. not used in the original formula)
+\end{itemize}
+
+\begin{example}
+	Prove $\exists x. P(x)\land \forall x.\neg P(x)$ is unsatisfiable.
+
+	\begin{enumerate}
+		\item $\exists x.P(x)$ (and elimination)
+		\item $\forall x. \neg P(x)$ (and elimination)
+		\item $P(a)$
+		\item $\neg P(a)$
+		\item False
+	\end{enumerate}
+\end{example}
+
+\subsection{Existential Generalization}
+\begin{itemize}
+	\item Suppose we know $P(c)$ is true for someone constant $c$
+	\item Then there exists an element for which $P$ is true.
+	\item Thus we canc conlude $\exists x. P(x)$
+	\item This inference rule is called \textbf{existential generalization}
+
+	\[
+		\begin{array}[]{c}
+			P(c) \\
+			\hline
+			\exists x. P(x)
+			
+		\end{array}
+	\]
+\end{itemize}
 
 \end{document}
