@@ -717,7 +717,7 @@ General Strategies for Proving Theorems:
 \end{example}
 
 \begin{example}
-	In proof by contraposition, you prove $p\rightarrow q$ by assuming $\neg q$ and 
+	In proof by contraposition, you prove $p\rightarrow q$ by assuming $\neg q$ and
 	$\neg p$ follows. For example: $n$ is an odd integer, then $n^2$ is also odd. Or, you can prove
 	if $n$ is not odd, then $n^2$ is not odd.
 
@@ -741,5 +741,230 @@ then you have proved that $p\rightarrow q$ is valid.
 		$6k+2 | k\in \mathbb{Z}$ which contradicts our assumption.
 	\end{proof}
 \end{example}
+
+\section{Lecture--September 15, 2022}
+
+\begin{example}
+	Example: Prove that every rational number can be expressed as a product of two
+	\textbf{irrational numbers}.
+
+	Suppose $r$ is a non-zero rational number. From lemma, we have $\frac{r}{\sqrt{2}}$
+	is irrational. From earlier proofs, we know that $\sqrt{2}$ is irrational. This implies $r$
+	can be written as product of 2 irrationals.
+
+	Lemma: If $r$ is a non-zero rational number, then $\frac{r}{\sqrt{2}}$ is irrational.
+
+	\begin{proof}
+		Proof by contradiction. Suppose $r$ is a non-zero rational number and $\frac{r}{\sqrt{2}}$
+		is also rational.
+
+		From definition of rational numbers, $r=\frac{a}{b}$ and $\frac{r}{\sqrt{2}}=\frac{p}{q}$.
+
+		where $a,b,p,q\in \mathbb{Z}$ and $b,q\neq 0$.
+
+		\[
+			\frac{r}{\sqrt{2}} = \frac{p}{q}\implies \sqrt{2}=\frac{rq}{p}
+		\]
+
+		which would imply that $\sqrt{2}$ is irrational, which cannot be true
+		because it would contradict. Therefore, $\frac{r}{\sqrt{2}}$ is irrational.
+	\end{proof}
+\end{example}
+
+\subsection{If and Only If Proofs}
+
+\begin{itemize}
+	\item Some theorems are of the form ``P if and only if Q'' $(P\iff Q)$.
+	\item We can prove $P\iff Q$ by proving $P\rightarrow Q$ and $Q\rightarrow P$.
+\end{itemize}
+
+\begin{example}
+	Prove: ``A positive integer $n$ is odd if and only if $n^2$ is odd.''
+
+	\begin{itemize}
+		\item $\rightarrow$ has been shown using a direct proof earlier.
+		\item $\leftarrow$ has shown by a proof by contraposition.
+		\item Since we have both directions the proof is complete.
+	\end{itemize}
+\end{example}
+
+\subsection{Counterexamples}
+\begin{itemize}
+	\item How do we want to prove that a statement is false? Counterexample!
+	\item The product of two irrational numbers is irrational? False. Consider $\sqrt{2}\sqrt{2}=2$.
+\end{itemize}
+
+For all integers $n$, if $n^3$ is positive, $n$ is also positive. We can use contraposition.
+
+\subsection{Existence and Uniqueness}
+
+\begin{itemize}
+	\item Common math proofs involve showing \textbf{existence} and \textbf{uniqueness}
+	      of certain objects.
+	\item Existence proofs require showing that an object with the desired property exists.
+	\item One way to prove existence is show that one object has the desired property.
+	\item Example: Prove exists an integer that is sum of two perfect squares.
+	\item Proof: $2^2+2^2=8$
+	\item Indirect existence proofs are called non-constructive proofs.
+\end{itemize}
+
+Prove: ``There exist irrational numbers $x,y$ s.t. $x^y$ is rational.''
+
+\begin{proof}
+	Consider $z=\sqrt{2}^{\sqrt{2}}$
+
+	Case 1: $z$ is rational.
+	Then since $z=\sqrt{2}^{\sqrt{2}}$ is rational and $\sqrt{2}$ is irrational, $z$ is irrational.
+
+	Case 2: $z$ is irrational.
+	\begin{itemize}
+		\item We know $\sqrt{2}$ is irrational.
+		\item Our assumption for case 2 is $\sqrt{2}^{\sqrt{2}}$ is irrational.
+		\item $x=\sqrt{2}^{\sqrt{2}}$ and $y={\sqrt{2}}$ so
+		      $x^y=\parens*{\sqrt{2}^{\sqrt{2}}}^{\sqrt{2}} = \sqrt{2}^2=2$
+	\end{itemize}
+\end{proof}
+
+\begin{example}
+	Prove: There is a real unique number $r$ such that $ar+b=0$
+
+	Existence proof: $r=-\frac{b}{a}$
+
+\end{example}
+
+\begin{example}
+	Uniqueness: There exists a unique $r$ satisfying $ar+b=0$.
+
+	\begin{proof}
+		\begin{itemize}
+			\item Suppopse there are two difference $r_1+r_2$ that satisfy $ar+b=0$.
+			\item Then that would mean $ar_1+b=ar_2+b=0$. Then $r_1=r^2$ which is a contradiction which proofs uniqueness.
+		\end{itemize}
+	\end{proof}
+\end{example}
+
+\chapter{Basic Set Theory}
+
+\subsection{Set Builder Notation}
+
+\begin{definition}[Common Sets]
+	\begin{itemize}
+		\item Many sets that play fundamental roles in mathematics are infinite.
+		\item Set of integers $\mathbb{Z}={\ldots, -2, -1, 0, 1, 2, \ldots}$.
+		\item Set of positive integers: $\mathbb{Z}^+=\{1,2,3,\ldots\}$
+		\item Natural numbers: $\mathbb{N}=\{0,1,2,3,\ldots\}$
+		\item Set of real numbers: $\mathbb{R}$
+		\item All rational numbers: $\mathbb{Q}$
+		\item Irrational numbers: $\mathbb{I}$
+	\end{itemize}
+\end{definition}
+
+\subsection{Set Builder Notation}
+
+\begin{itemize}
+	\item Infinite sets are often written using set builder notation.
+	      \[
+		      S = \set{x\mid P(x)}
+	      \]
+\end{itemize}
+
+\begin{itemize}
+	\item Universal set $U$ includes all objects under consideration.
+	\item The empty set written as $\emptyset$ is the set with no elements.
+	\item A set containing exactly one element is called a singleton set.
+\end{itemize}
+
+\subsection{Subsets and Supersets}
+\begin{itemize}
+	\item A set A is a subset of set B written $A\subseteq B$ if every element of A is also an element of B.
+	      \[
+		      \forall x.(x\in A\rightarrow x\in B)
+	      \]
+
+	\item If $A\subseteq B$ then $B$ is called a superset of A, written $B\supseteq A$.
+	\item A set $A$ is a proper subset of set $B$ written $A\subset B$ if $A\subseteq B$ and $A\neq B$.
+	\item Sets $A$ and $B$ are equal, written $A=B$, if $A\subseteq B$ and $B\subseteq A$.
+\end{itemize}
+
+\begin{definition}[Power Set]
+	\begin{itemize}
+		\item The power set of a set $S$ written $P(S)$ is the set of all subsets of $S$.
+		\item What is the powerset of $\set{a, b, c}$?
+		      \[
+			      \set{\emptyset, \set{a}, \set{b}, \set{c}, \set{a,b}, \set{a,c}, \set{b,c}, \set{a,b,c}}
+		      \]
+		\item $\abs{P(S)}=2^{\abs{S}}$
+		\item $P(\emptyset)=\set{\emptyset}$
+		\item $P(P(\emptyset)) = \set{\emptyset, \set{\emptyset}}$
+	\end{itemize}
+\end{definition}
+
+\begin{definition}[Cartesian Product]
+	\begin{itemize}
+		\item To define the Cartesian product we need ordered tuples.
+		\item An \textbf{ordered n-tuple} is the ordered collection with $a_1$
+		      as its first element, $a_2$ as its second element, and $a_n$ as its last element.
+		\item Observe: $(1, 2)$ and $(2, 1)$ are different ordered pairs.
+		\item The Cartesian product of two sets $A$ and $B$ is the set of all ordered pairs $(a,b)$ where $a\in A$ and $b\in B$.
+		      \[
+			      A\times B = \set{(a,b)\mid a\in A, b\in B}
+		      \]
+	\end{itemize}
+\end{definition}
+
+\begin{example}
+	Let $A=\set{1,2}$ and $B=\set{a,b,c}$. Find $A\times B$.
+
+	\[
+		A\times B = \set{(a,b)\mid a\in A, b\in B} = \set{(1,a), (1,b), (1,c), (2,a), (2,b), (2,c)}
+	\]
+
+\end{example}
+
+We can also extend the Cartesian product to more than two sets.
+
+\begin{definition}[Cartesian Product of More than Two Sets]
+	\begin{itemize}
+		\item The Cartesian product of more than two sets is defined recursively.
+		\item Let $A_1, A_2, \ldots, A_n$ be sets. Then
+		      \[
+			      A_1\times A_2\times \cdots \times A_n = \set{(a_1, a_2, \ldots, a_n)\mid a_1\in A_1, a_2\in A_2, \ldots, a_n\in A_n}
+		      \]
+	\end{itemize}
+\end{definition}
+
+\begin{example}
+	If $A=\set{1, 2}, B=\set{a, b}, C=\set{\star, \circ}$ what is $A\times B\times C$?
+
+	\[
+		A\times B\times C = \set{(a,b)\mid a\in A, b\in B} = \set{(1,a,\star), (1,a,\circ), (1,b,\star), (1,b,\circ), (2,a,\star), (2,a,\circ), (2,b,\star), (2,b,\circ)}
+	\]
+\end{example}
+
+\subsection{Set Operations}
+
+\begin{definition}[Set union]
+	\[
+		A \cup B = \set{x\mid x\in A \text{ or } x\in B}
+	\]
+\end{definition}
+
+\begin{definition}[Intersection]
+	\[
+		A \cap B = \set{x\mid x\in A \text{ and } x\in B}
+	\]
+\end{definition}
+
+\begin{definition}[Difference]
+	\[
+		A - B = \set{x\mid x\in A \text{ and } x\notin B}
+	\]
+\end{definition}
+
+\begin{definition}[Complement]
+	\[
+		\overline{A} = \set{x\mid x\notin A}
+	\]
+\end{definition}
 
 \end{document}

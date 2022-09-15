@@ -14,18 +14,26 @@
 \contentsline {subsection}{\numberline {1.5.1}Satisfiability and validity in FOL}{9}{subsection.1.5.1}%
 \contentsline {subsection}{\numberline {1.5.2}Equivalence}{9}{subsection.1.5.2}%
 \contentsline {subsection}{\numberline {1.5.3}Rules of Inference}{9}{subsection.1.5.3}%
-\contentsline {subsubsection}{\nonumberline Modus Ponens}{9}{subsubsection*.3}%
-\contentsline {subsubsection}{\nonumberline Modus Tollens}{9}{subsubsection*.5}%
-\contentsline {subsubsection}{\nonumberline Hypothetical Syllogism}{10}{subsubsection*.7}%
-\contentsline {subsubsection}{\nonumberline Or Introduction}{10}{subsubsection*.9}%
-\contentsline {subsubsection}{\nonumberline Or Elimination}{10}{subsubsection*.11}%
-\contentsline {subsubsection}{\nonumberline And Introduction}{10}{subsubsection*.13}%
-\contentsline {subsubsection}{\nonumberline Resolution}{10}{subsubsection*.15}%
+\contentsline {subsubsection}{\nonumberline Modus Ponens}{9}{section*.2}%
+\contentsline {subsubsection}{\nonumberline Modus Tollens}{10}{section*.3}%
+\contentsline {subsubsection}{\nonumberline Hypothetical Syllogism}{10}{section*.4}%
+\contentsline {subsubsection}{\nonumberline Or Introduction}{10}{section*.5}%
+\contentsline {subsubsection}{\nonumberline Or Elimination}{10}{section*.6}%
+\contentsline {subsubsection}{\nonumberline And Introduction}{10}{section*.7}%
+\contentsline {subsubsection}{\nonumberline Resolution}{10}{section*.8}%
 \contentsline {section}{\numberline {1.6}Lecture--September 8, 2022}{10}{section.1.6}%
-\contentsline {subsection}{\numberline {1.6.1}Universal Instantiation}{10}{subsection.1.6.1}%
+\contentsline {subsection}{\numberline {1.6.1}Universal Instantiation}{11}{subsection.1.6.1}%
 \contentsline {subsection}{\numberline {1.6.2}Universal Generalization}{11}{subsection.1.6.2}%
-\contentsline {subsubsection}{\nonumberline Caveats about universal generalization}{11}{subsubsection*.17}%
+\contentsline {subsubsection}{\nonumberline Caveats about universal generalization}{11}{section*.9}%
 \contentsline {subsection}{\numberline {1.6.3}Existential Instantiation}{11}{subsection.1.6.3}%
 \contentsline {subsection}{\numberline {1.6.4}Existential Generalization}{12}{subsection.1.6.4}%
 \contentsline {section}{\numberline {1.7}Lecture--September 13, 2022}{12}{section.1.7}%
-\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
+\contentsline {section}{\numberline {1.8}Lecture--September 15, 2022}{13}{section.1.8}%
+\contentsline {subsection}{\numberline {1.8.1}If and Only If Proofs}{13}{subsection.1.8.1}%
+\contentsline {subsection}{\numberline {1.8.2}Counterexamples}{14}{subsection.1.8.2}%
+\contentsline {subsection}{\numberline {1.8.3}Existence and Uniqueness}{14}{subsection.1.8.3}%
+\contentsline {chapter}{\numberline {2}Basic Set Theory}{15}{chapter.2}%
+\contentsline {subsection}{\numberline {2.0.1}Set Builder Notation}{15}{subsection.2.0.1}%
+\contentsline {subsection}{\numberline {2.0.2}Set Builder Notation}{15}{subsection.2.0.2}%
+\contentsline {subsection}{\numberline {2.0.3}Subsets and Supersets}{15}{subsection.2.0.3}%
+\contentsline {subsection}{\numberline {2.0.4}Set Operations}{16}{subsection.2.0.4}%
