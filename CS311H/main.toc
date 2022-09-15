@@ -27,4 +27,5 @@
 \contentsline {subsubsection}{\nonumberline Caveats about universal generalization}{11}{subsubsection*.17}%
 \contentsline {subsection}{\numberline {1.6.3}Existential Instantiation}{11}{subsection.1.6.3}%
 \contentsline {subsection}{\numberline {1.6.4}Existential Generalization}{12}{subsection.1.6.4}%
+\contentsline {section}{\numberline {1.7}Lecture--September 13, 2022}{12}{section.1.7}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

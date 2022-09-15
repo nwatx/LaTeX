@@ -564,16 +564,16 @@ $\phi_2$ or $\phi_3$ must be true.
 
 \begin{itemize}
 	\item If we know that something is true for all members of a group we can
-	conclude is also true for a specific member of this group.
+	      conclude is also true for a specific member of this group.
 	\item This idea is called \textbf{universal instantiation}
 
-	\[
-		\begin{array}[]{c}
-			\forall x.(F(x)) \\
-			\hline
-			F(a)
-		\end{array}
-	\]
+	      \[
+		      \begin{array}[]{c}
+			      \forall x.(F(x)) \\
+			      \hline
+			      F(a)
+		      \end{array}
+	      \]
 \end{itemize}
 
 \begin{example}
@@ -584,12 +584,12 @@ $\phi_2$ or $\phi_3$ must be true.
 		\item Socrates is a man: $man(socrates)$
 		\item Prove mortal(Socrates)
 		\item \[
-			man(socrates)\rightarrow mortal(socrates)
-		\]
+			      man(socrates)\rightarrow mortal(socrates)
+		      \]
 
-		\[
-			mortal(socrates) (2, 3, modus\: ponens)
-		\]
+		      \[
+			      mortal(socrates) (2, 3, modus\: ponens)
+		      \]
 	\end{itemize}
 \end{example}
 
@@ -600,13 +600,13 @@ $\phi_2$ or $\phi_3$ must be true.
 	\item The correct reasoning is captured by \textbf{universal generalization}
 	\item ``arbitrary'' means an objects introduced through universal instantiation.
 
-	\[
-		\begin{array}[]{c}
-			P(c) \text{for arbitrary c} \\
-			\hline
-			\forall x. P(x)
-		\end{array}
-	\]
+	      \[
+		      \begin{array}[]{c}
+			      P(c) \text{for arbitrary c} \\
+			      \hline
+			      \forall x. P(x)
+		      \end{array}
+	      \]
 \end{itemize}
 
 \begin{example}
@@ -633,14 +633,13 @@ $\phi_2$ or $\phi_3$ must be true.
 	\item Consider formula $\exists x. P(x)$
 	\item We know there is an element $c$ in the domain for which $P(c)$ is true.
 	\item This is called \textbf{existential instantiation}
-	\[
-		\begin{array}[]{c}
-			\exists x. P(x) \\
-			\hline
-			P(c)
-			
-		\end{array}
-	\]
+	      \[
+		      \begin{array}[]{c}
+			      \exists x. P(x) \\
+			      \hline
+			      P(c)
+		      \end{array}
+	      \]
 
 	\item Here $c$ is a \textbf{fresh} name (i.e. not used in the original formula)
 \end{itemize}
@@ -664,14 +663,83 @@ $\phi_2$ or $\phi_3$ must be true.
 	\item Thus we canc conlude $\exists x. P(x)$
 	\item This inference rule is called \textbf{existential generalization}
 
-	\[
-		\begin{array}[]{c}
-			P(c) \\
-			\hline
-			\exists x. P(x)
-			
-		\end{array}
-	\]
+	      \[
+		      \begin{array}[]{c}
+			      P(c) \\
+			      \hline
+			      \exists x. P(x)
+		      \end{array}
+	      \]
 \end{itemize}
+
+\section{Lecture--September 13, 2022}
+
+Some terminology
+
+\begin{itemize}
+	\item Important mathematical statements that can be shown to be true are \textbf{theorems}
+	\item Many famous mathematical theormes, e.g., Pythagoraean theorem, Fermat's Last Theorem
+	\item Pythagorean theorem: $a^2 + b^2 = c^2$
+	\item Fermat's Last Theorem: $a^n + b^n = c^n$ has no solutions for $n > 2$
+\end{itemize}
+
+Theorems, Lemmas, and propositions
+
+\begin{itemize}
+	\item Lemma: minor auxilary result aids in the proof of a theorem.
+	\item Corollary: a result whose proof follows immediately from a theorem or proposition
+\end{itemize}
+
+Conjectures vs. Theorems
+
+\begin{itemize}
+	\item Conjecture is a statement that is suspected to be true by experts but not proven.
+	\item Goldman's Conjecture: Every even integer greater than 2 can be expressed as the sum of two prime numbers
+	\item One of the most famous unsolved problems in mathematics
+\end{itemize}
+
+General Strategies for Proving Theorems:
+
+\begin{itemize}
+	\item Direct proof: $p\rightarrow q$ proved by directly showing that if $p$ then $q$.
+	\item Proof by contraposition: $p\rightarrow q$ proved by showing that if $\neg q$ then $\neg p$.
+\end{itemize}
+
+\begin{example}
+	If $n$ is an odd integer then $n^2$ is also odd.
+
+	Assume $n$ is odd.
+
+	\begin{proof}
+		$n^2=(2k+1)^2=4k^2+4k+1=2(2k^2+2k) + 1 = 2k' + 1$. \\
+		$\therefore n^2$ is odd
+	\end{proof}
+\end{example}
+
+\begin{example}
+	In proof by contraposition, you prove $p\rightarrow q$ by assuming $\neg q$ and 
+	$\neg p$ follows. For example: $n$ is an odd integer, then $n^2$ is also odd. Or, you can prove
+	if $n$ is not odd, then $n^2$ is not odd.
+
+	\begin{proof}
+		$n = 2k$ \\
+		$n^2 = 4k^2$ \\
+		$2(2k^2) \text{\: is even}$
+	\end{proof}
+\end{example}
+
+Proof by contradiction: A formula $\phi$ is valid iff $\neg \phi$ is unsatisfiable.
+
+Assume $\neg (p\rightarrow q)$ is unsatisfiable. If you can prove that it is unsatisfiable
+then you have proved that $p\rightarrow q$ is valid.
+
+\begin{example}
+	Prove by contradiction that if $3n+2$ is odd, then $n$ is odd.
+
+	\begin{proof}
+		Assume $3n+2$ is odd and $n$ is even. Since $n$ is even, $3n+2$ can be written as
+		$6k+2 | k\in \mathbb{Z}$ which contradicts our assumption.
+	\end{proof}
+\end{example}
 
 \end{document}
