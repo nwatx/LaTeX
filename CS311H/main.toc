@@ -37,3 +37,5 @@
 \contentsline {subsection}{\numberline {2.0.2}Set Builder Notation}{15}{subsection.2.0.2}%
 \contentsline {subsection}{\numberline {2.0.3}Subsets and Supersets}{15}{subsection.2.0.3}%
 \contentsline {subsection}{\numberline {2.0.4}Set Operations}{16}{subsection.2.0.4}%
+\contentsline {section}{\numberline {2.1}Lecture--September 20, 2022}{17}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Undecidability}{17}{subsection.2.1.1}%

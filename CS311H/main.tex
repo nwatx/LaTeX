@@ -967,4 +967,75 @@ We can also extend the Cartesian product to more than two sets.
 	\]
 \end{definition}
 
+\section{Lecture--September 20, 2022}
+
+Prove De Morgan's Law for Sets: $\overline{A\cup B} = \overline{A}\cap \overline{B}$
+
+\begin{proof}
+	\begin{align}
+		\overline{A\cup B} &= \set{x\mid x\notin A\cup B} \\
+						   &= \set{x \mid \neg(x\in A\cup B)} \\
+						   &= \set{x \mid x \notin a \land x\notin b} \\
+						   &= \set{x \mid x \in \overline{A} \land x\in \overline{B}} \\
+		                   &= \overline{A}\cap \overline{B}
+	\end{align}
+\end{proof}
+
+\begin{itemize}
+	\item Intuitive formulation for sets is called naive set theory.
+	\item Any definable collection is a set
+	\item In other words unrestricted comprehension says that $\set{x\mid F(x)}$ is a Set
+	for any formula $F$.
+	\item Russell showed that Cantor's set theory is inconsistent.
+	\item This can be shown using so-called ``Russell's Paradox''.
+\end{itemize}
+
+\begin{definition}[Russell's Paradox]
+	\begin{itemize}
+		\item Let $A$ be a set. Then $A$ is a member of $A$ if and only if $A$ is not a member of $A$.
+		\item This is a contradiction.
+		\[
+			R = \set{S \mid S \notin S}
+		\]
+	\end{itemize}
+\end{definition}
+
+\subsection{Undecidability}
+\begin{itemize}
+	\item A proof similar to Russell's paraodx can be used to show \textbf{undecidability} of the Halting Problem.
+	\item A decision problem is a question that has a yes or no answer.
+	\item A decision problem is \textbf{undecidable} if it is not possible to have
+	an algorithm that always terminates and gives correct answer.
+\end{itemize}
+
+\begin{theorem}[Halting Problem is Undecideable]
+	Proof by contradiction: Let a program called Calvin take parameter $p$.
+
+	\begin{itemize}
+		\item Let $b=TermChecker(P, P)$.
+		\item If $b$, then Calvin will infinite loop.
+		\item Otherwise, Calvin will terminate.
+	\end{itemize}
+
+	Because of this self-reference, we don't know whether Calvin will terminate or not.
+	Does Calvin terminate on itself? By Russell's Paradox, we can't know. Contradiction.
+\end{theorem}
+
+Other famous undecideable problems
+
+\begin{itemize}
+	\item \textbf{Validity in first-order logic}. Given an arbitrary first order logic formula
+	$F$, is $F$ valid? (Hilbert's Entschiedungsproblem)
+	\item Program verification: Given a problem $P$ and a non-trivial property $Q$
+	does $P$ satisfy $Q$? (Rice's theorem)
+	\item Hilbert's 10th problem: Does a diophantine equation $p(x_1, x_2, \ldots, x_n) = 0$ have a solution?
+\end{itemize}
+
+\begin{itemize}
+	\item Image = a group of some elements of the output set when some elements of the input set are passed to the function. When the function is passed the entire input set, this is sometimes known as the range.
+	\item Preimage = a group of some elements of the input set which are passed to a function to obtain some elements of the output set. It is the inverse of the Image.
+	\item Domain = all valid values of the independent variable. This makes up the input set of a function, or the set of departure. These are all elements that can go into a function.  
+	\item Codomain = all valid values of the dependent variable. This makes up the output set of a function, or the set of destination. These are all elements that may possibly come out of a function.
+\end{itemize}
+
 \end{document}
