@@ -1,9 +1,12 @@
-\documentclass{scrreprt}
+\documentclass[8pt]{scrreprt}
 \usepackage{standalone}
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{graphbox} % 1120
 \usepackage{chez}
+\usepackage{multicol}
+\usepackage{lscape}
+
 
 \title{Discrete Mathematics--Honors}
 \author{Neo Wang\\ Lecturer: Isil Dilig}
@@ -13,8 +16,11 @@
 \newcommand{\false}{\text{false}}
 
 \begin{document}
+\begin{landscape}
 \maketitle
 \tableofcontents
+
+\begin{multicols*}{3}
 
 \chapter{Logic and Sets}
 
@@ -200,6 +206,15 @@ $\forall I, I\models F_1\rightarrow F_2$
 \begin{definition}[Implication Removal]
 	$p\rightarrow q$ is equivalent to $\neg p\lor q$
 \end{definition}
+
+\subsection{Discussion 1}
+\begin{itemize}
+	\item If p, then q: $p\rightarrow q$
+	\item p only if q: $p\rightarrow q$
+	\item p unless q: $\neg q \rightarrow p$
+	\item p is necessary for q: $q\rightarrow p$
+	\item p is sufficient for q: $p\rightarrow q$
+\end{itemize}
 
 \subsection{Important equivalences}
 
@@ -1037,5 +1052,8 @@ Other famous undecideable problems
 	\item Domain = all valid values of the independent variable. This makes up the input set of a function, or the set of departure. These are all elements that can go into a function.  
 	\item Codomain = all valid values of the dependent variable. This makes up the output set of a function, or the set of destination. These are all elements that may possibly come out of a function.
 \end{itemize}
+
+\end{multicols*}
+\end{landscape}
 
 \end{document}
