@@ -16,11 +16,8 @@
 \newcommand{\false}{\text{false}}
 
 \begin{document}
-\begin{landscape}
 \maketitle
 \tableofcontents
-
-\begin{multicols*}{3}
 
 \chapter{Logic and Sets}
 
@@ -1053,7 +1050,156 @@ Other famous undecideable problems
 	\item Codomain = all valid values of the dependent variable. This makes up the output set of a function, or the set of destination. These are all elements that may possibly come out of a function.
 \end{itemize}
 
-\end{multicols*}
-\end{landscape}
+\section{Lecture--September 27, 2022}
+
+\subsection{Proving Injectivity}
+
+Consider the function
+
+\[
+	f(x)=\begin{cases}
+		3x + 1 & \text{if } x\geq 0 \\
+		-3x + 2 & \text{if } x < 0
+	\end{cases}
+\]
+
+\begin{proof}
+	Case 1: $x\geq 0$ and $y\geq 0$.
+	\begin{align*}
+		f(x)=3x+1 \\
+		f(y)=3y+1 \\
+		3x + 1 = 3y + 1 \\
+		x = y
+	\end{align*}
+
+	Case 2: $x < 0$ and $y < 0$.
+	\begin{align*}
+		-3x+2&=-3y+2\\
+		-3x&=-3y\\
+		x&=y
+	\end{align*}
+
+	Case 3: $x < 0$ and $y\geq 0$.
+	\begin{align*}
+		f(x) &= 3x + 1 \\
+		f(y) &= 3y + 1 \\
+		3x + 3y &= 1 \\
+		x + y &= \frac{1}{3}
+	\end{align*}
+
+	It can never be the case that $x + y = \frac{1}{3}$ because $x$ and $y$ are integers.
+	Therefore we have reached a contradiction and the function is not injective.
+\end{proof}
+
+\begin{definition}[Onto functions]
+	Items are onto if
+	\[ \forall y \in B.\exists x \in A. f(x)=y \]
+
+	all elements in the codomain are images of some element in the domain.
+\end{definition}
+
+\begin{definition}[Bijective Functions]
+	\begin{itemize}
+		\item Function that is both onto and one-to-one is called a \textbf{bijection}
+		\item One-to-one correspondence or invertible function are synonymous.
+	\end{itemize}
+\end{definition}
+
+\begin{example}[Identity function]
+	$$\forall x\in A. I(x) = x$$
+\end{example}
+
+Every bijection from set $A$ to set $B$ has an inverse function $f^{-1}$.
+
+Why does inverse not exist if $f$ is not surjective? There are elements in the new domain
+that would not map.
+
+Composition: $f(x)=2x+3$ and $g(x)=3x+2$ then $f\circ g = 2(3x + 2) + 3 = 6x + 8$.
+
+Another composition: prove that $f^{-1}\circ f$ is the identity function.
+You swap the domain and codomain twice.
+
+\begin{example}
+	If $f$ and $g$ are injective, then $f\circ g$ is also injective.
+
+	\begin{proof}
+		\begin{align*}
+			f(a) = f(b) &\iff a = b \\
+			g(a) = g(b) &\iff a = b \\
+			g(f(a)) = g(f(b)) &\implies f(a)=f(b)\implies a = b
+		\end{align*}
+	\end{proof}
+\end{example}
+
+\subsection{Floor and Ceiling Functions}
+
+
+\begin{definition}[Floor and Ceiling Functions]
+	Both floor and ceiling functions map $f: \mathbb{R} \to \mathbb{Z}$.
+
+	\begin{itemize}
+		\item \textbf{Floor function} $f(x) = \lfloor x \rfloor$ is the largest integer less than or equal to $x$.
+		\item \textbf{Ceiling function} $f(x) = \lceil x \rceil$ is the smallest integer greater than or equal to $x$.
+	\end{itemize}
+
+	$x=y+\epsilon$ for some $\epsilon \in [0, 1)$.
+
+	$x=y-\epsilon$ for some $\epsilon \in [0, 1)$.
+\end{definition}
+
+\begin{example}
+	Prove that $\lfloor -x\rfloor = -\lceil x \rceil$.
+
+	\begin{proof}
+
+		RHS:
+		\begin{align*}
+			y = x + \epsilon \\
+			x = y - \epsilon \\
+			- y
+		\end{align*}
+
+		LHS:
+		\begin{align*}
+			-(y-\epsilon) \\
+			-y + \epsilon \\
+			-y
+		\end{align*}
+	\end{proof}
+\end{example}
+
+\begin{example}
+	Prove that $\lfloor x+k \rfloor = \lfloor x \rfloor + k$.
+
+	RHS:
+	\begin{align*}
+		\floor{x} + k = y + k
+	\end{align*}
+
+	LHS:
+	\begin{align*}
+		\floor{x+k} = \floor{y+\epsilon + k} = y + k
+	\end{align*}
+\end{example}
+
+More Examples:
+
+\begin{proof}
+	% \[
+	% 	\floor {2y + \epsilon} = 2y
+	% \]
+
+	% \[
+	% 	\floor{y + \epsilon} + \floor{y + \epsilon + \frac{1}{2}} \\
+	% \]
+
+	\[
+		\begin{cases}
+			\epsilon \geq 0.5 & \text{then } \floor{y+\epsilon} + \floor{y+\epsilon+\frac{1}{2}} = y + y + 1 = 2y+1 \\
+			\epsilon < 0.5 & \text{then } \floor{y+\epsilon} + \floor{y+\epsilon+\frac{1}{2}} = y + y = 2y
+		\end{cases}
+	\]
+\end{proof}
+
 
 \end{document}
