@@ -1,12 +1,12 @@
-\documentclass[8pt]{scrreprt}
+\documentclass{scrreprt}
 \usepackage{standalone}
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{graphbox} % 1120
 \usepackage{chez}
 \usepackage{multicol}
+\usepackage{forloop}
 \usepackage{lscape}
-
 
 \title{Discrete Mathematics--Honors}
 \author{Neo Wang\\ Lecturer: Isil Dilig}
@@ -985,11 +985,11 @@ Prove De Morgan's Law for Sets: $\overline{A\cup B} = \overline{A}\cap \overline
 
 \begin{proof}
 	\begin{align}
-		\overline{A\cup B} &= \set{x\mid x\notin A\cup B} \\
-						   &= \set{x \mid \neg(x\in A\cup B)} \\
-						   &= \set{x \mid x \notin a \land x\notin b} \\
-						   &= \set{x \mid x \in \overline{A} \land x\in \overline{B}} \\
-		                   &= \overline{A}\cap \overline{B}
+		\overline{A\cup B} & = \set{x\mid x\notin A\cup B}                             \\
+		                   & = \set{x \mid \neg(x\in A\cup B)}                         \\
+		                   & = \set{x \mid x \notin a \land x\notin b}                 \\
+		                   & = \set{x \mid x \in \overline{A} \land x\in \overline{B}} \\
+		                   & = \overline{A}\cap \overline{B}
 	\end{align}
 \end{proof}
 
@@ -997,7 +997,7 @@ Prove De Morgan's Law for Sets: $\overline{A\cup B} = \overline{A}\cap \overline
 	\item Intuitive formulation for sets is called naive set theory.
 	\item Any definable collection is a set
 	\item In other words unrestricted comprehension says that $\set{x\mid F(x)}$ is a Set
-	for any formula $F$.
+	      for any formula $F$.
 	\item Russell showed that Cantor's set theory is inconsistent.
 	\item This can be shown using so-called ``Russell's Paradox''.
 \end{itemize}
@@ -1006,9 +1006,9 @@ Prove De Morgan's Law for Sets: $\overline{A\cup B} = \overline{A}\cap \overline
 	\begin{itemize}
 		\item Let $A$ be a set. Then $A$ is a member of $A$ if and only if $A$ is not a member of $A$.
 		\item This is a contradiction.
-		\[
-			R = \set{S \mid S \notin S}
-		\]
+		      \[
+			      R = \set{S \mid S \notin S}
+		      \]
 	\end{itemize}
 \end{definition}
 
@@ -1017,7 +1017,7 @@ Prove De Morgan's Law for Sets: $\overline{A\cup B} = \overline{A}\cap \overline
 	\item A proof similar to Russell's paraodx can be used to show \textbf{undecidability} of the Halting Problem.
 	\item A decision problem is a question that has a yes or no answer.
 	\item A decision problem is \textbf{undecidable} if it is not possible to have
-	an algorithm that always terminates and gives correct answer.
+	      an algorithm that always terminates and gives correct answer.
 \end{itemize}
 
 \begin{theorem}[Halting Problem is Undecideable]
@@ -1037,16 +1037,16 @@ Other famous undecideable problems
 
 \begin{itemize}
 	\item \textbf{Validity in first-order logic}. Given an arbitrary first order logic formula
-	$F$, is $F$ valid? (Hilbert's Entschiedungsproblem)
+	      $F$, is $F$ valid? (Hilbert's Entschiedungsproblem)
 	\item Program verification: Given a problem $P$ and a non-trivial property $Q$
-	does $P$ satisfy $Q$? (Rice's theorem)
+	      does $P$ satisfy $Q$? (Rice's theorem)
 	\item Hilbert's 10th problem: Does a diophantine equation $p(x_1, x_2, \ldots, x_n) = 0$ have a solution?
 \end{itemize}
 
 \begin{itemize}
 	\item Image = a group of some elements of the output set when some elements of the input set are passed to the function. When the function is passed the entire input set, this is sometimes known as the range.
 	\item Preimage = a group of some elements of the input set which are passed to a function to obtain some elements of the output set. It is the inverse of the Image.
-	\item Domain = all valid values of the independent variable. This makes up the input set of a function, or the set of departure. These are all elements that can go into a function.  
+	\item Domain = all valid values of the independent variable. This makes up the input set of a function, or the set of departure. These are all elements that can go into a function.
 	\item Codomain = all valid values of the dependent variable. This makes up the output set of a function, or the set of destination. These are all elements that may possibly come out of a function.
 \end{itemize}
 
@@ -1058,7 +1058,7 @@ Consider the function
 
 \[
 	f(x)=\begin{cases}
-		3x + 1 & \text{if } x\geq 0 \\
+		3x + 1  & \text{if } x\geq 0 \\
 		-3x + 2 & \text{if } x < 0
 	\end{cases}
 \]
@@ -1066,25 +1066,25 @@ Consider the function
 \begin{proof}
 	Case 1: $x\geq 0$ and $y\geq 0$.
 	\begin{align*}
-		f(x)=3x+1 \\
-		f(y)=3y+1 \\
+		f(x)=3x+1       \\
+		f(y)=3y+1       \\
 		3x + 1 = 3y + 1 \\
 		x = y
 	\end{align*}
 
 	Case 2: $x < 0$ and $y < 0$.
 	\begin{align*}
-		-3x+2&=-3y+2\\
-		-3x&=-3y\\
-		x&=y
+		-3x+2 & =-3y+2 \\
+		-3x   & =-3y   \\
+		x     & =y
 	\end{align*}
 
 	Case 3: $x < 0$ and $y\geq 0$.
 	\begin{align*}
-		f(x) &= 3x + 1 \\
-		f(y) &= 3y + 1 \\
-		3x + 3y &= 1 \\
-		x + y &= \frac{1}{3}
+		f(x)    & = 3x + 1      \\
+		f(y)    & = 3y + 1      \\
+		3x + 3y & = 1           \\
+		x + y   & = \frac{1}{3}
 	\end{align*}
 
 	It can never be the case that $x + y = \frac{1}{3}$ because $x$ and $y$ are integers.
@@ -1124,9 +1124,9 @@ You swap the domain and codomain twice.
 
 	\begin{proof}
 		\begin{align*}
-			f(a) = f(b) &\iff a = b \\
-			g(a) = g(b) &\iff a = b \\
-			g(f(a)) = g(f(b)) &\implies f(a)=f(b)\implies a = b
+			f(a) = f(b)       & \iff a = b                       \\
+			g(a) = g(b)       & \iff a = b                       \\
+			g(f(a)) = g(f(b)) & \implies f(a)=f(b)\implies a = b
 		\end{align*}
 	\end{proof}
 \end{example}
@@ -1196,10 +1196,136 @@ More Examples:
 	\[
 		\begin{cases}
 			\epsilon \geq 0.5 & \text{then } \floor{y+\epsilon} + \floor{y+\epsilon+\frac{1}{2}} = y + y + 1 = 2y+1 \\
-			\epsilon < 0.5 & \text{then } \floor{y+\epsilon} + \floor{y+\epsilon+\frac{1}{2}} = y + y = 2y
+			\epsilon < 0.5    & \text{then } \floor{y+\epsilon} + \floor{y+\epsilon+\frac{1}{2}} = y + y = 2y
 		\end{cases}
 	\]
 \end{proof}
+
+\section{Lecture--September 29, 2022}
+
+\subsection{Cardinality of Infinite Sets}
+
+Sets with infinite cardinality are either countablly infinite or uncountably infinite.
+
+\begin{itemize}
+	\item A set is \textbf{countable} if it can be put into one-to-one correspondence with the set of positive integers.
+	\item Otherwise, the set is called \textbf{uncountable} or \textbf{uncountably infinite}.
+\end{itemize}
+
+\begin{example}
+	The set of odd positive integers is countably infinite.
+
+	\begin{proof}
+		Let $f(x)=2x-1$ which forms a bijection.
+
+		This function is injective because $f(x)=f(y)\implies x=y$ and surjective
+		because for any odd positive integer $o$, $\frac{o+1}{2}\in \mathbb{Z}^+$
+
+		\begin{align*}
+			\{1, 3, 5, 7, 9, 11, 13, 15, 17, 19, \ldots\} \\
+			\{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, \ldots\}
+		\end{align*}
+	\end{proof}
+\end{example}
+
+Another proof method is to show that members of $A$ can be written as a sequence
+$(a_1, a_2, a_3, \ldots)$ since such a sequence is a bijective function from $\mathbb{Z}^+$ to A.
+
+\begin{example}
+	Prove that the set of all integers is countable. You can start from zero and go in order of
+	magnitude and then by positive and negative integers. This forms the sequences
+	\[0,-1,1,-2,2,-3,3,\ldots\]
+\end{example}
+
+\begin{example}
+	Is $Q$ countable? Yes.
+
+	We traverse the diagonals, which are finite.
+
+	% \[
+	% 	\begin{array}{c| c c c c}
+	% 		       & q=1         & q=2         & q=3         & \ldots \\
+	% 		\hline
+	% 		p=1    & \frac{1}{1} & \frac{1}{2} & \frac{1}{3} & \ldots \\
+	% 		p=2    & \frac{2}{1} & \frac{2}{2} & \frac{2}{3} & \ldots \\
+	% 		p=3    & \frac{3}{1} & \frac{3}{2} & \frac{3}{3} & \ldots \\
+	% 		\vdots & \vdots      & \vdots      & \vdots      & \ddots
+	% 	\end{array}
+	% \]
+	\include{examples/cantor}
+
+\end{example}
+
+\subsection{Uncountability of Real Numbers}
+
+\begin{itemize}
+	\item Prime example of uncountably infinite sets is \textbf{real numbers}
+	\item The fact that $\mathbb{R}$ is uncountable was proven by Cantor using Cantor's diagonalization argument.
+	\item Reminiscient of Russell's paradox.
+\end{itemize}
+
+\begin{example}
+	Prove that $\mathbb{R}$ is uncountable.
+
+	\begin{itemize}
+		\item For contradiction assume the set of reals was countable.
+		\item Since any subset of a countable set is also countable, this would
+		      imply that the set of reals between $0$ and $1$ is also countable.
+		\item Cantor's diagonalization argument constructs $R^\prime$ by taking
+		      $a_11, a_22, a_33, \ldots$ and so on and using the rule:
+
+		      \[
+			      R'_i = \begin{cases}
+				      4 & \text{if } a_{ij} = 5    \\
+				      5 & \text{if } a_{ij} \neq 5 \\
+			      \end{cases}
+		      \]
+	\end{itemize}
+\end{example}
+
+\chapter{Number Theory}
+
+\subsection{Divisibility}
+
+\begin{definition}
+	$a|b$ or $a$ divides $b$ iff there exists an integer $k$ such that $b=ka$.
+\end{definition}
+
+\begin{example}
+	If $n$ and $d$ as positive integers, how many positive integers not exceeding $n$ are divisible by $d$.
+
+	\[
+		\floor{n/d}
+	\]
+\end{example}
+
+\begin{example}
+	If $a|b$ and $b|c$, then $a|c$.
+
+	\begin{proof}
+		Let $a|b$ and $b|c$. Then there exist integers $x$ and $y$ such that $b = ax$ and $c = by$. Then $c = a(x+y)$.
+	\end{proof}
+\end{example}
+
+\begin{example}
+	$a|b$ and $a|c$ implies $a|(mb + nc)$.
+
+	$b=ak$ and $c=ak'$ then \[
+		mb+nc=mak+nak'=a(mk+nk')
+	\]
+\end{example}
+
+\subsection{Modulus}
+
+I hope you know what this is.
+
+\begin{example}
+	Prove $a\equiv b (\mod m)\iff a\mod m = b \mod m$
+
+	\begin{proof}
+		Proof by trivial.
+	\end{proof}
+\end{example}
 
 
 \end{document}

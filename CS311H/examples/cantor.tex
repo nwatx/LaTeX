@@ -1,0 +1,104 @@
+\newcounter{n}
+\setcounter{n}{10}	% change this value
+\newcounter{j}
+\newcounter{h}
+\newcounter{x}
+\newcounter{y}
+\newcounter{xx}
+\newcounter{yy}
+\newcounter{nminusone}
+\setcounter{nminusone}{-1}
+\addtocounter{nminusone}{\value{n}}
+
+\newcommand\tikzmark[2]{
+    \tikz[remember picture,baseline] \node[inner sep=2pt,outer sep=0] (#1){#2};
+}
+
+\newcommand\link[2]{
+    \begin{tikzpicture}[remember picture, overlay, >=stealth, shift={(0,0)}]
+        \draw[->] (#1) to (#2);
+    \end{tikzpicture}
+}
+
+\setlength{\tabcolsep}{.3em} % for the horizontal padding
+{\renewcommand{\arraystretch}{2}% for the vertical padding
+    \begin{tabular}{*{\value{n}}{ c } }
+        \forloop{y}{1}{\value{y} < \value{n}}
+        {
+            \forloop{x}{1}{\value{x} < \value{n}}
+            {
+                \ifnum\value{x}=\value{nminusone}
+        \tikzmark{\they-\thex}{$...$} \uppercase{                 & }
+                \else
+                \ifnum\value{y}=\value{nminusone}
+        \tikzmark{\they-\thex}{$...$} \uppercase{                 & }
+                \else
+        \tikzmark{\they-\thex}{$\frac{\they}{\thex}$} \uppercase{ & }
+                \fi
+                \fi
+            }
+            \\
+        }
+    \end{tabular}
+}
+\forloop{y}{1}{\value{y} < \value{n}}
+{
+    \forloop{x}{1}{\value{x} <  \value{n}}
+    {
+        \setcounter{yy}{\value{y}}
+        \setcounter{xx}{\value{x}}
+        \newcount\h
+        \h=\value{n}\relax
+        \advance\h-\value{y}
+        \advance\h 1
+        \ifnum\value{y}=1
+            \ifcase\value{j}
+                \addtocounter{yy}{1}
+            \or
+                \addtocounter{xx}{1}
+            \or
+                \addtocounter{yy}{1}
+                \addtocounter{xx}{-1}
+                \setcounter{j}{0}
+            \fi
+        \else
+            \ifodd\value{y}
+                \ifodd\value{x}
+                    \ifnum\value{x}=1
+                        \addtocounter{yy}{1}
+                        \ifnum\value{yy}=\value{n}
+                            \addtocounter{yy}{-1}
+                        \fi
+                    \else
+                        \ifnum\h>\value{x}
+                            \addtocounter{yy}{1}
+                            \addtocounter{xx}{-1}
+                        \fi
+                    \fi
+                \else
+                    \ifnum\h>\value{x}
+                        \addtocounter{yy}{-1}
+                        \addtocounter{xx}{1}
+                    \fi
+                \fi
+            \else
+                \ifodd\value{x}
+                    \ifnum\h>\value{x}
+                        \addtocounter{yy}{-1}
+                        \addtocounter{xx}{1}
+                    \fi
+                \else
+                    \ifnum\h>\value{x}
+                        \addtocounter{yy}{1}
+                        \addtocounter{xx}{-1}
+                    \fi
+                \fi
+            \fi
+        \fi
+        \stepcounter{j}
+        \advance\h -1
+        \ifnum\h>\value{x}
+            \link{\they-\thex}{\theyy-\thexx}
+        \fi
+    }
+}
