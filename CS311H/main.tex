@@ -69,5 +69,72 @@ I hope you know what this is.
 	This \href{https://www.math.cmu.edu/~mradclif/teaching/127S19/Notes/Infinite%20Cardinality.pdf}{article} is a good read.
 \end{remark}
 
+\section{Lecture--October 4, 2022}
+
+\begin{theorem}
+	$a\equiv b(\mod m)$ and $c\equiv d(\mod m)$ implies $a + c \equiv b + d \mod m$.
+	\begin{proof}
+		\begin{align*}
+			a = b + km                \\
+			a - b = km                \\
+			c = d + k'm               \\
+			c - d = k'm               \\
+			a + c = b + d + km + k'm  \\
+			a + c = b + d + (k + k')m \\
+			a + c = b + d (\mod m)
+		\end{align*}
+	\end{proof}
+\end{theorem}
+
+\subsubsection{Shift Cipher}
+Obvious.
+
+\begin{definition}[Fundamental Theorem of Arithmetic]
+	Every positive integer greater than $1$ is either prime or can
+	be written uniquely as a product of primes.
+
+	This unique product of prime numbers for $x$ is called the prime factorization of $x$.
+\end{definition}
+
+
+Examples are obvious.
+
+\begin{theorem}
+	If $n$ is composite, then it has a prime divisor less than or equal to $\sqrt{n}$
+
+	\begin{proof}
+		By contradiction. Assume $n$ is composite and has no prime divisor less than or equal to $\sqrt{n}$. Then $n$ is prime.
+	\end{proof}
+\end{theorem}
+
+\subsection{Greatest Common Divisor}
+
+Suppose $a$ and $b$ are non-zero integers.
+
+Then the largest integer such that $d|a, d|b$ is $d = \gcd(a, b)$.
+
+Two numbers whose $\gcd$ is $1$ are called relatively prime.
+
+\begin{theorem}
+	$\gcd(a, b) = \gcd(b, a \mod b)$
+	\begin{proof}
+		\begin{align*}
+			a = bq + r \\
+			b = rq' + r' \\
+			\gcd(a, b) = \gcd(b, a \mod b)
+		\end{align*}
+	\end{proof}
+\end{theorem}
+
+\subsection{Least Common Multple}
+
+Obvious.
+
+\begin{theorem}
+	$\lcm(a, b) = \frac{ab}{\gcd(a, b)}$
+	\begin{proof}
+		
+	\end{proof}
+\end{theorem}
 
 \end{document}
