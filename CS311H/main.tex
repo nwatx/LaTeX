@@ -26,31 +26,31 @@
 \subsection{Divisibility}
 
 \begin{definition}
-	$a|b$ or $a$ divides $b$ iff there exists an integer $k$ such that $b=ka$.
+    $a|b$ or $a$ divides $b$ iff there exists an integer $k$ such that $b=ka$.
 \end{definition}
 
 \begin{example}
-	If $n$ and $d$ as positive integers, how many positive integers not exceeding $n$ are divisible by $d$.
+    If $n$ and $d$ as positive integers, how many positive integers not exceeding $n$ are divisible by $d$.
 
-	\[
-		\floor{n/d}
-	\]
+    \[
+        \floor{n/d}
+    \]
 \end{example}
 
 \begin{example}
-	If $a|b$ and $b|c$, then $a|c$.
+    If $a|b$ and $b|c$, then $a|c$.
 
-	\begin{proof}
-		Let $a|b$ and $b|c$. Then there exist integers $x$ and $y$ such that $b = ax$ and $c = by$. Then $c = a(x+y)$.
-	\end{proof}
+    \begin{proof}
+        Let $a|b$ and $b|c$. Then there exist integers $x$ and $y$ such that $b = ax$ and $c = by$. Then $c = a(x+y)$.
+    \end{proof}
 \end{example}
 
 \begin{example}
-	$a|b$ and $a|c$ implies $a|(mb + nc)$.
+    $a|b$ and $a|c$ implies $a|(mb + nc)$.
 
-	$b=ak$ and $c=ak'$ then \[
-		mb+nc=mak+nak'=a(mk+nk')
-	\]
+    $b=ak$ and $c=ak'$ then \[
+        mb+nc=mak+nak'=a(mk+nk')
+    \]
 \end{example}
 
 \subsection{Modulus}
@@ -58,53 +58,53 @@
 I hope you know what this is.
 
 \begin{example}
-	Prove $a\equiv b (\mod m)\iff a\mod m = b \mod m$
+    Prove $a\equiv b (\mod m)\iff a\mod m = b \mod m$
 
-	\begin{proof}
-		Proof by trivial.
-	\end{proof}
+    \begin{proof}
+        Proof by trivial.
+    \end{proof}
 \end{example}
 
 \begin{remark}
-	This \href{https://www.math.cmu.edu/~mradclif/teaching/127S19/Notes/Infinite%20Cardinality.pdf}{article} is a good read.
+    This \href{https://www.math.cmu.edu/~mradclif/teaching/127S19/Notes/Infinite%20Cardinality.pdf}{article} is a good read.
 \end{remark}
 
 \section{Lecture--October 4, 2022}
 
 \begin{theorem}
-	$a\equiv b(\mod m)$ and $c\equiv d(\mod m)$ implies $a + c \equiv b + d \mod m$.
-	\begin{proof}
-		\begin{align*}
-			a = b + km                \\
-			a - b = km                \\
-			c = d + k'm               \\
-			c - d = k'm               \\
-			a + c = b + d + km + k'm  \\
-			a + c = b + d + (k + k')m \\
-			a + c = b + d (\mod m)
-		\end{align*}
-	\end{proof}
+    $a\equiv b(\mod m)$ and $c\equiv d(\mod m)$ implies $a + c \equiv b + d \mod m$.
+    \begin{proof}
+        \begin{align*}
+            a = b + km                \\
+            a - b = km                \\
+            c = d + k'm               \\
+            c - d = k'm               \\
+            a + c = b + d + km + k'm  \\
+            a + c = b + d + (k + k')m \\
+            a + c = b + d (\mod m)
+        \end{align*}
+    \end{proof}
 \end{theorem}
 
 \subsubsection{Shift Cipher}
 Obvious.
 
 \begin{definition}[Fundamental Theorem of Arithmetic]
-	Every positive integer greater than $1$ is either prime or can
-	be written uniquely as a product of primes.
+    Every positive integer greater than $1$ is either prime or can
+    be written uniquely as a product of primes.
 
-	This unique product of prime numbers for $x$ is called the prime factorization of $x$.
+    This unique product of prime numbers for $x$ is called the prime factorization of $x$.
 \end{definition}
 
 
 Examples are obvious.
 
 \begin{theorem}
-	If $n$ is composite, then it has a prime divisor less than or equal to $\sqrt{n}$
+    If $n$ is composite, then it has a prime divisor less than or equal to $\sqrt{n}$
 
-	\begin{proof}
-		By contradiction. Assume $n$ is composite and has no prime divisor less than or equal to $\sqrt{n}$. Then $n$ is prime.
-	\end{proof}
+    \begin{proof}
+        By contradiction. Assume $n$ is composite and has no prime divisor less than or equal to $\sqrt{n}$. Then $n$ is prime.
+    \end{proof}
 \end{theorem}
 
 \subsection{Greatest Common Divisor}
@@ -120,10 +120,317 @@ Two numbers whose $\gcd$ is $1$ are called relatively prime.
 Obvious.
 
 \begin{theorem}
-	$\lcm(a, b) = \frac{ab}{\gcd(a, b)}$
-	\begin{proof}
-		Obvious.
-	\end{proof}
+    $\lcm(a, b) = \frac{ab}{\gcd(a, b)}$
+    \begin{proof}
+        Obvious.
+    \end{proof}
 \end{theorem}
+
+\section{Lecture--October 11, 2022}
+
+Two different kinds of cryptography systems:
+\begin{itemize}
+    \item Private key cryptography (also known as symmetric)
+    \item Public key cryptography (also known as asymmetric)
+\end{itemize}
+
+In private key cryptography sender and receiver agree on secret key that both use.
+In public key cryptography a public key is used to encrypt a message and a private key is used to decrypt the message.
+
+\begin{itemize}
+    \item Private key cryptography is classical method, used since antiquity
+    \item Caesar's cipher is an example of private key cryptography
+    \item Caesar's cipher is shift cipher where $f(x) = (x + k) \mod 26$
+    \item Both receiver and sender need to know the key $k$
+    \item Modern symmetric algorithms: RC4, DES, AES, ...
+    \item Main problem: How do you exchange secret key?
+\end{itemize}
+
+\subsection{Public Key Cryptography}
+\begin{itemize}
+    \item Public key cryptography is the modern method: different keys are used
+          to encrypt vs. decrypt message.
+    \item Most commonly used public key system is RSA
+    \item Great application of number theory and things we've learned.
+    \item Named after its inventors Rivest, Shamir, and Adlemann, all researchers
+          from MIT (1978). Similar system invented earlier by British researcher
+          Clifford Cocks, but classified -- unknown until 90's
+\end{itemize}
+
+\subsection{RSA Overview}
+
+\begin{itemize}
+    \item Bob has two keys: public and private
+    \item Everyone knows Bob's public key but only he knows his private key
+    \item Alice encrypts message using Bob's public key
+    \item Bob decrypts message using private key
+    \item Since public key cannot decrypt, no-one can read message except Bob.
+\end{itemize}
+
+\subsection{RSA Mathematics}
+
+\begin{itemize}
+    \item In the RSA system, private key consists of two large prime numbers $p$ and $q$.
+    \item Public key consists of two numbers $n = pq$ and $e$, which is relatively prime with $\phi(n)=(p-1)(q-1)$.
+    \item Encrypts messages using $n, e$ but to decrypt, must know $p$ and $q$.
+    \item In theory, can extract $p, q$ from $n$ using prime factorization, but this is intractable for very
+          large numbers.
+\end{itemize}
+
+\begin{itemize}
+    \item Decryption key $d$ is the inverse of $e$ modulo $\phi(n)$.
+          \[d\cdot e\equiv 1 (\mod \phi(n))\]
+
+    \item Decryption function: $C \mapsto M = C^{\overline{e}} \mod n$
+    \item Since adversaries do not know $p$ and $q$, they cannot compute $d$ and cannot decrypt message.
+
+          \[
+              D(E(M)) = D(M^e\mod n) = (M^e\mod n)^{\overline{e}}\mod n = M
+          \]
+\end{itemize}
+
+\subsection{Security of RSA}
+
+\begin{itemize}
+    \item The encryption used is a trapdoor function which is easy to compute
+          in one direction but hard to compute in the other direction.
+    \item Decryption without private key is very hard because requires prime factorization
+    \item There are efficient (poly-time) prime factorization algorithms for
+          quantum computers (eg. Shor's algorithm), but not for classical computers.
+    \item If we could build quantum computers with sufficient ``qubits'', then
+          RSA would no longer be secure.
+\end{itemize}
+
+\subsection{Combinatorics}
+
+\begin{itemize}
+    \item How many elements in a given set have desired property
+    \item Counting problems can be hard $\implies$ useful to decompose
+    \item Two basic very useful composition rules:
+          \begin{enumerate}
+              \item Product rule: useful when task decomposes into a sequence of independent tasks.
+              \item Decomposes task into a set of alternatives
+          \end{enumerate}
+\end{itemize}
+
+\begin{definition}[Product Rule]
+    If there are $n_1$ ways of doing $A$ and $n_2$ ways of doing $B$, then there are $n_1n_2$ ways of doing $A$ and $B$ given they are independent.
+
+    Example: new company with 12 offices and 2 employees how many ways to assign different offices.
+
+    \[
+        12 \cdot 11 = 132
+    \]
+\end{definition}
+
+\begin{definition}[Sum Rule]
+    If there are $n_1$ ways of doing $A$ and $n_2$ ways of doing $B$, then there are $n_1 + n_2$ ways of doing $A$ or $B$.
+
+    Example: either CS faculty or CS student must be chosen as represent and there are 14 faculty and 20 students.
+
+    \[
+        14 + 20 = 34
+    \]
+\end{definition}
+
+\section{Lecture--October 13, 2022}
+
+\begin{definition}[Another Example]
+    \begin{itemize}
+        \item A password must be \textbf{six to seven characters} long
+        \item A character is upper case letter or digit
+        \item Each password must contain at least one digit
+        \item How many possible passwords
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    How many bitstrings are there of length 6 that do not have two consecutive 1's? 21.
+\end{example}
+
+\subsubsection{Sum Rule}
+\begin{itemize}
+    \item Sum rule only applies if a task is as disjunction of two mutually exclusive tasks.
+    \item What do we do if the tasks aren't mutually exclusive.
+\end{itemize}
+
+\subsection{Principle of Inclusion-Exclusion}
+
+\begin{definition}{Principle of Inclusion-Exclusion (PIE)}
+    \[
+        \abs{A} = \abs{B\cup C} = \abs{B} + \abs{C} - \abs{B \cap C}
+    \]
+
+    This can be generalized to any number of sets.
+
+    \[
+        \left|\bigcup_{i=1}^n A_i\right| = \sum_{i=1}^n |A_i| - \sum_{1 \leqslant i < j \leqslant n} |A_i\cap A_j| + \sum_{1 \leqslant i < j < k \leqslant n} |A_i \cap A_j\cap A_k| - \cdots + (-1)^{n+1} \left|A_1\cap\cdots\cap A_n\right|
+    \]
+
+    More compactly:
+
+    \[
+        \left|\bigcup_{i=1}^n A_i\right| = \sum_{k=1}^n (-1)^{k+1} \left( \sum_{1 \leqslant i_1 < \cdots < i_k \leqslant n} | A_{i_1} \cap \cdots \cap A_{i_k} | \right)
+    \]
+
+    \[
+        \left| \bigcup_{i=1}^n A_i\right| = \sum_{\emptyset\neq J\subseteq\{1,\ldots,n\}}(-1)^{|J|+1} \left |\bigcap_{j\in J} A_j\right|
+    \]
+\end{definition}
+
+\begin{example}
+    \begin{itemize}
+        \item 350 applications for job positions
+        \item 220 are CS majors, 147 are business majors, 51 are CS + business majors.
+        \item How many are neither CS nor business?
+    \end{itemize}
+
+    \[
+        350 - (220 + 147 - 51) = 34
+    \]
+\end{example}
+
+\subsection{The Pigeonhole Principle}
+\begin{itemize}
+    \item Suppose there is a flock of 36 pigeons and a set of 35 pigeonholes
+    \item Each pigeon wants to sit in one hole
+    \item But since there are less holes than there are pigeons, one pigeon is
+          left without a hole.
+    \item If $n+1$ or more objects are placed into $n$ boxes, then at least one box contains
+          $2$ or more objects.
+\end{itemize}
+
+\begin{example}
+    \begin{itemize}
+        \item Consider an event with $367$ people. Is it possible no pair of people
+              have the same birthday? No.
+        \item Consider function $f$ from a set $k+1$ or more elements to a set
+              with $k$ elements. Is it possible that $f$ is injective? No.
+        \item Consider $n$ married couples. How many of the $2n$ people
+              must be selected to guarantee there is at least one married couple. $n + 1$
+    \end{itemize}
+\end{example}
+
+\begin{theorem}
+    If $n$ objects are placed into $k$ boxes, then there is at least one box
+    containing at least $\lceil \frac{n}{k} \rceil$ objects.
+
+    \begin{proof}
+        Suppose every box contains less than $\lceil \frac{n}{k} \rceil$ objects.
+        \[
+            b\leq \ceil*{\frac{n}{k}} - 1
+        \]
+
+        Let $b_i$ be the number of objects in box $i$.
+
+        \begin{align*}
+            n & = \sum_{i=1}^k b_i \leq k\cdot b                                                                      \\
+              & \leq k\cdot (\ceil*{\frac{n}{k}} - 1)                                                                 \\
+              & = k\cdot \parens*{\frac{n}{k} + \epsilon - 1}, \epsilon \in [0, 1) \tag{note $\epsilon-1\in [-1, 0)$} \\
+              & = n + (\epsilon - 1)                                                                                  \\
+            n & < n \tag{Contradiction}
+        \end{align*}
+    \end{proof}
+\end{theorem}
+
+\subsection{$r$-permutations}
+
+\begin{itemize}
+    \item $r$-permutations are ordered arrangement of $r$ elements in a set $S$.
+    \item $S$ can contain more than $r$ elements.
+    \item But we want arrangement containing $r$ of the elements in set $S$
+    \item The number of $r$-permutations in a set with $n$ elements is written $P(n, r)$
+    \item $P(n, r) = \frac{n!}{(n-r)!}$
+\end{itemize}
+
+\section{Lecture--October 18, 2022}
+
+An $r$-combination of set $s$ is the unordered selection of $r$ elements from that set.
+Unlike permutations, order does not matter in combinations.
+
+For example, for the set $S = \set{a, b, c}$ we would have $\set{a, b}, \set{a, c}, \set{b, c}$
+
+$P(n, r)$, choose $r$ elements from set, order these $r$ elements.
+
+\[
+    P(n,r) = C(n,r)\cdot r!
+\]
+
+\[
+    C(n, r) = \frac{n!}{(n-r)!r!}
+\]
+
+How many hands of $5$ cards can be dealt from a standard deck of $52$ cards? $C(52, 5)$
+
+\begin{example}
+    How many bitstrings of length $8$ contain at least $6$ ones? ${8\choose 6} + {8\choose 7} + {8\choose 8}$
+\end{example}
+
+\begin{corollary}[Binomial Sum]
+    \[
+        \sum_{k=0}^n{n\choose k} = 2^n
+    \]
+
+    \begin{proof}
+        \[
+            2^n = (1 + 1)^n = \sum_{k=0}^n 1^k \cdot 1^{n-k} = \sum_{k=0}^n{n\choose k}
+        \]
+    \end{proof}
+\end{corollary}
+
+\begin{corollary}
+    \[
+        \sum_{k=0}^n(-1)^k{n\choose k} = 0
+    \]
+
+    \begin{proof}
+        \[
+            (-1 + 1)^n = \sum_{k=0}^n (-1)^k 1^{n-k} = \sum_{k=0}^n {n\choose k} (-1)^k = 0
+        \]
+    \end{proof}
+\end{corollary}
+
+\subsection{Pascal's Triangle}
+
+\[
+    \begin{array}{c}
+        1                                                             \\
+        1 \quad 1                                                     \\
+        1 \quad 2 \quad 1                                             \\
+        1 \quad 3 \quad 3 \quad 1                                     \\
+        1 \quad 4 \quad 6 \quad 4 \quad 1                             \\
+        1 \quad 5 \quad 10 \quad 10 \quad 5 \quad 1                   \\
+        1 \quad 6 \quad 15 \quad 20 \quad 15 \quad 6 \quad 1          \\
+        1 \quad 7 \quad 21 \quad 35 \quad 35 \quad 21 \quad 7 \quad 1 \\
+    \end{array}
+\]
+
+To see what the numbers represent more clearly:
+
+\[
+    \begin{array}{c}
+        {\color{red}\boldsymbol{1}}=\binom{0}{0}                                                               \\
+        {\color{red}\boldsymbol{1}}=\binom{1}{0} \quad\quad{\color{red}\boldsymbol{1}}=\binom{1}{1}            \\
+        {\color{red}\boldsymbol{1}}=\binom{2}{0} \quad\quad  {\color{red}\boldsymbol{2}}=\binom{2}{1}
+        \quad\quad{\color{red}\boldsymbol{1}}=\binom{2}{2}                                                     \\
+        {\color{red}\boldsymbol{1}}=\binom{3}{0} \quad\quad  {\color{red}\boldsymbol{3}}=\binom{3}{1} \quad\quad
+        {\color{red}\boldsymbol{3}}=\binom{3}{2} \quad\quad\quad\quad {\color{red}\boldsymbol{1}}=\binom{3}{3} \\
+        {\color{red}\boldsymbol{1}}=\binom{4}{0} \quad\quad  {\color{red}\boldsymbol{4}}=\binom{4}{1} \quad\quad
+        {\color{red}\boldsymbol{6}}=\binom{4}{2} \quad\quad  {\color{red}\boldsymbol{4}}=\binom{4}{3} \quad\quad
+        {\color{red}\boldsymbol{1}}=\binom{4}{4}                                                               \\
+    \end{array}
+\]
+
+\begin{theorem}
+    ${n + 1\choose k} = \frac{n + 1}{k} \cdot {n\choose k}$
+
+    \begin{proof}
+        \[
+            {n\choose k -1} + {n\choose k} = \frac{n!}{(k-1)!(n-k+1)!} + \frac{n!}{k!(n-k)!} = {n+1\choose k}
+        \]
+    \end{proof}
+
+\end{theorem}
+
 
 \end{document}
