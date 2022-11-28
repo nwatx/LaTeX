@@ -432,5 +432,65 @@ To see what the numbers represent more clearly:
 
 \end{theorem}
 
+\chapter{Graph Theory}
+
+\begin{theorem}
+    If a graph has $e$ edges then the sum of degrees is $2e$
+    \begin{proof}
+        By induction on $e$. If a graph has $e$ edges then the sum of degrees is $2e$
+
+        Base Case: $e=0$, when $e=0$, sum of degrees is also $0$.
+
+        Inductive step:
+
+        Consider a graph with $e + 1$ edges.
+
+        Assume that the sum of degrees is $2e$. Then, let $(u, v)$ be an arbitrary
+        edge in $G$. Remove $(u, v)$ from $G$ and add $u$ and $v$ to $G'$. Then, $G'$
+        has $e-1$ edges.
+
+        \[\sum_{v\in G'} deg(v) = 2\cdot e\]
+
+        Consider adding edge $(u, v)$ to $G'$ to obtain $G$. The degrees of all vertices
+        except $u + v$ is unchanged, but degree of $u$ increases by $1$ and degree of
+        $v$ also increases by $1$. Therefore, the sum of the degrees is in $G$
+        is going to be the sum of the degrees in $G'$ plus $2$. From our inductive
+        hypothesis:
+
+        \[\sum_{v\in G} deg(v) = \sum_{v\in G'} deg(v) + 2\] = 2e + 2 = 2(e + 1)
+    \end{proof}
+\end{theorem}
+
+Handshaking Theorem: The sum of the degrees of all vertices in a graph is even.
+
+\begin{definition}
+    A graph $G=(V, E)$ is a subgraph of another graph $G' = (V', E')$ if $V \subseteq V'$ and $E \subseteq E'$.
+\end{definition}
+
+\begin{definition}[Induced Subgraph]
+    Graph $G'$ is the induced subgraph of $G$ with respect to $V'$ if:
+
+    \begin{enumerate}
+        \item $G'$ contains exactly those vertices in $V'$.
+        \item For all $u, v\in V', (u, v) \in G'$ iff $(u, v) \in G$.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Complete Graph]
+    A complete graph $K_n$ is a graph with $n$ vertices and $n(n-1)/2$ edges.
+    Every pair of vertices is connected by on edge.
+\end{definition}
+
+\begin{definition}[Bipartite Graphs]
+    A simple graph $G$ is bipartite if it can be colored with two colors such that no two adjacent vertices have the same color.
+\end{definition}
+
+\begin{definition}[Graph Coloring]
+    A coloring of a garph is the assignemnt of a color to each vertex such that no two adjacent vertices have the same color.
+    
+    A graph is $k$-colorable if it can be colored with $k$ colors.
+
+    The chromatic number of a graph is the minimum number of colors needed to color the graph.
+\end{definition}
 
 \end{document}
